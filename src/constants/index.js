@@ -14,10 +14,10 @@ export const SERVICES_DATA = [
   { icon: Settings, title: "Pengembangan Sistem Custom", desc: "Menyediakan solusi end-to-end yang disesuaikan dengan kebutuhan unik bisnis Anda untuk meningkatkan efisiensi operasional." },
   { icon: Briefcase, title: "Pengembangan Sistem Enterprise", desc: "Membangun sistem terpusat berskala besar untuk mendukung fungsionalitas yang kompleks dan lintas departemen." },
   { icon: Cloud, title: "Pengembangan Platform SaaS", desc: "Merancang dan membangun arsitektur Software as a Service yang scalable, andal, dan siap melayani ribuan pengguna." },
-  { icon: Server, title: "Pengembangan Sistem Internal", desc: "Membuat alat internal khusus untuk manajemen data, alur kerja, dan kolaborasi dalam organisasi Anda." },
+  { icon: Server, title: "Pengembangan Sistem Internal", desc: "Membuat dashboard, sistem manajemen, dan tools internal untuk mendukung operasional bisnis." },
   { icon: MessageCircle, title: "Konsultasi Gratis", desc: "Kami menyediakan sesi konsultasi gratis untuk mendiskusikan kebutuhan, mengeksplorasi ide, dan memberikan saran strategis." },
   { icon: Link2, title: "Integrasi Sistem Eksternal", desc: "Mengintegrasikan berbagai platform, API, dan layanan pihak ketiga ke dalam sistem utama Anda secara mulus." },
-  { icon: RefreshCw, title: "Pembaruan Sistem Sebelumnya", desc: "Memperbarui dan memodernisasi sistem lama (legacy) untuk meningkatkan performa, keamanan, dan fungsionalitas baru." },
+  { icon: RefreshCw, title: "Private and Secure Solutions", desc: "Membangun sistem software yang aman, private, dan terlindungi untuk melindungi data dan operasional bisnis Anda dari risiko." },
 ];
 
 export const PROCESS_STEPS = [

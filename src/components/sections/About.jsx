@@ -1,4 +1,5 @@
 import React from 'react';
+import whyImage from '../../assets/why.png';
 
 const About = () => (
   <section id="about" className="py-24 bg-white">
@@ -6,21 +7,11 @@ const About = () => (
       
       <div className="w-full lg:w-1/2 flex justify-center">
         <div className="relative w-full max-w-lg p-8 bg-slate-50 rounded-[3rem] border border-slate-100 shadow-sm">
-           <svg viewBox="0 0 500 400" fill="none" xmlns="[http://www.w3.org/2000/svg](http://www.w3.org/2000/svg)" className="w-full h-auto drop-shadow-md">
-            <circle cx="250" cy="200" r="140" fill="#f0fdfa" />
-            <circle cx="250" cy="200" r="180" stroke="#ccfbf1" strokeWidth="2" strokeDasharray="8 8" />
-            <path d="M120 250 L 250 120 L 380 250" stroke="#14b8a6" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" />
-            <circle cx="120" cy="250" r="12" fill="#fff" stroke="#14b8a6" strokeWidth="4" />
-            <circle cx="250" cy="120" r="16" fill="#14b8a6" />
-            <circle cx="380" cy="250" r="12" fill="#fff" stroke="#14b8a6" strokeWidth="4" />
-            <text x="120" y="210" fontSize="40" fontWeight="bold" fill="#0d9488" textAnchor="middle" opacity="0.6">?</text>
-            <text x="380" y="210" fontSize="40" fontWeight="bold" fill="#0d9488" textAnchor="middle" opacity="0.6">?</text>
-            <text x="250" y="90" fontSize="50" fontWeight="bold" fill="#0f766e" textAnchor="middle">!</text>
-            <path d="M180 320 C180 280 230 280 230 320" fill="#99f6e4" />
-            <circle cx="205" cy="260" r="20" fill="#0d9488" />
-            <path d="M270 320 C270 270 320 270 320 320" fill="#ccfbf1" />
-            <circle cx="295" cy="250" r="18" fill="#14b8a6" />
-          </svg>
+        <img
+      src={whyImage}
+      alt="Mengapa Scribtware"
+      className="w-full h-auto drop-shadow-md"
+    />
         </div>
       </div>
 

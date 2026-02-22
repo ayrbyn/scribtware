@@ -1,74 +1,90 @@
 import React from 'react';
-import { ArrowUp, Linkedin, Instagram, Facebook, Globe } from 'lucide-react';
+import { Linkedin, Instagram, Mail, MessageCircle } from 'lucide-react';
 import Logo from '../ui/Logo';
-import { FOOTER_LINKS } from '../../constants';
 
 const Footer = () => {
-  const scrollToTop = () => window.scrollTo({ top: 0, behavior: 'smooth' });
+  // Daftar link utama beserta anchor ke komponen masing-masing
+  const links = [
+    { label: 'Home', href: '#hero' },       // Mengarah ke Hero.jsx
+    { label: 'Layanan', href: '#services' }, // Mengarah ke Services.jsx
+    { label: 'Proses', href: '#process' },   // Mengarah ke Process.jsx
+    { label: 'Hubungi Kami', href: '#contact' }
+  ];
+
+  // Daftar sosial media
+  const socialLinks = [
+    { icon: Linkedin, href: '#', label: 'LinkedIn' },
+    { icon: Instagram, href: '#', label: 'Instagram' },
+    { icon: MessageCircle, href: '#', label: 'WhatsApp' },
+    { icon: Mail, href: 'mailto:info@scribtware.com', label: 'Email' }
+  ];
 
   return (
-    <footer className="bg-slate-50 pt-20 pb-10 border-t border-slate-200 relative">
-      <button 
-        onClick={scrollToTop}
-        className="absolute -top-6 right-8 md:right-16 bg-slate-800 text-white p-4 rounded-full shadow-xl hover:bg-teal-500 transition-colors duration-300 border-4 border-white z-20 group"
-        aria-label="Scroll to top"
-      >
-        <ArrowUp className="w-5 h-5 group-hover:-translate-y-1 transition-transform" />
-      </button>
+    <footer className="relative bg-teal-500 w-full overflow-hidden pt-12 pb-6">
+      
+      {/* Efek dekorasi lingkaran (Shape) di sebelah kanan latar belakang (Diperkecil) */}
+      <div className="absolute right-0 top-0 w-full md:w-1/2 h-full pointer-events-none overflow-hidden flex justify-end z-0">
+        <div className="absolute -right-16 top-[-20%] w-[28rem] h-[28rem] bg-teal-600/30 rounded-full blur-2xl"></div>
+        <div className="absolute right-8 top-[15%] w-[18rem] h-[18rem] bg-teal-600/40 rounded-full"></div>
+        <div className="absolute right-[-5%] bottom-[-20%] w-[16rem] h-[16rem] bg-teal-700/30 rounded-full"></div>
+      </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-16 mb-10">
           
-          <div className="lg:col-span-2 space-y-6">
+          {/* Kolom Kiri: Logo, Deskripsi, dan Sosial Media */}
+          <div className="flex flex-col space-y-4">
             <Logo />
-            <p className="text-slate-500 text-sm leading-relaxed max-w-sm">
+            <p className="text-teal-50 text-xs sm:text-sm leading-relaxed max-w-sm">
               Scribtware berinovasi melalui layanan pengembangan perangkat lunak modern untuk bisnis Anda. Kami membantu perusahaan bertransformasi dan siap menghadapi tantangan era digital.
             </p>
-            <div className="flex gap-4 pt-2">
-              {[Linkedin, Instagram, Facebook, Globe].map((Icon, i) => (
-                <a key={i} href="#" className="w-10 h-10 rounded-full bg-white border border-slate-200 flex items-center justify-center text-slate-400 hover:bg-teal-500 hover:text-white hover:border-teal-500 transition-all duration-300 shadow-sm">
-                  <Icon className="w-4 h-4" />
+            
+            {/* Kumpulan Tombol Sosial Media */}
+            <div className="pt-2 flex flex-wrap gap-3">
+              {socialLinks.map((social, idx) => {
+                const Icon = social.icon;
+                return (
+                  <a 
+                    key={idx}
+                    href={social.href} 
+                    className="inline-flex w-8 h-8 sm:w-10 sm:h-10 rounded-full border border-teal-300 items-center justify-center text-teal-50 hover:bg-white hover:text-teal-600 transition-all duration-300 shadow-sm"
+                    aria-label={social.label}
+                    title={social.label}
+                  >
+                    <Icon className="w-4 h-4" />
+                  </a>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* Kolom Kanan: Menu Navigasi Besar (Font dan jarak diperkecil) */}
+          <div className="flex flex-col md:items-start lg:items-center justify-center space-y-4 md:pl-8 lg:pl-0">
+            <div className="flex flex-col space-y-3">
+              {links.map((link, i) => (
+                <a 
+                  key={i} 
+                  href={link.href} 
+                  className="text-white text-lg md:text-xl font-medium hover:text-white transition-colors flex items-center group"
+                >
+                  {/* Titik indikator */}
+                  <span className={`w-1.5 h-1.5 rounded-full mr-3 transition-all duration-300 ${i === 0 ? 'bg-white' : 'bg-transparent group-hover:bg-teal-200'}`}></span>
+                  {link.label}
                 </a>
               ))}
             </div>
           </div>
-
-          <div>
-            <h4 className="font-bold text-slate-800 mb-6 text-sm uppercase tracking-wider">Blog</h4>
-            <ul className="space-y-4">
-              {FOOTER_LINKS.blog.map((link, i) => (
-                <li key={i}><a href="#" className="text-slate-500 hover:text-teal-500 text-sm transition-colors">{link}</a></li>
-              ))}
-            </ul>
-          </div>
-
-          <div>
-            <h4 className="font-bold text-slate-800 mb-6 text-sm uppercase tracking-wider">Perusahaan</h4>
-            <ul className="space-y-4">
-              {FOOTER_LINKS.company.map((link, i) => (
-                <li key={i}><a href="#" className="text-slate-500 hover:text-teal-500 text-sm transition-colors">{link}</a></li>
-              ))}
-            </ul>
-          </div>
-
-          <div>
-            <h4 className="font-bold text-slate-800 mb-6 text-sm uppercase tracking-wider">Sosial</h4>
-            <ul className="space-y-4">
-              {FOOTER_LINKS.social.map((link, i) => (
-                <li key={i}><a href="#" className="text-slate-500 hover:text-teal-500 text-sm transition-colors">{link}</a></li>
-              ))}
-            </ul>
-          </div>
-
+          
         </div>
 
-        <div className="flex flex-col md:flex-row justify-between items-center border-t border-slate-200 pt-8 mt-8">
-          <p className="text-slate-400 text-sm">
-            © {new Date().getFullYear()} Scribtware. All rights reserved.
+        {/* Garis Pemisah (Divider) dan Bagian Bawah Footer */}
+        <div className="flex flex-col md:flex-row justify-between items-center border-t border-teal-400/60 pt-6 mt-6">
+          <p className="text-teal-100 text-xs sm:text-sm mb-3 md:mb-0">
+            Copyright {new Date().getFullYear()} © Scribtware. All Rights Reserved
           </p>
-          <div className="flex gap-6 mt-4 md:mt-0">
-            <a href="#" className="text-slate-400 hover:text-teal-500 text-sm transition-colors">Privacy Policy</a>
-            <a href="#" className="text-slate-400 hover:text-teal-500 text-sm transition-colors">Terms of Service</a>
+          <div className="flex gap-4 sm:gap-6">
+            <a href="#" className="text-teal-100 hover:text-white text-xs sm:text-sm transition-colors">Privacy Policy</a>
+            <a href="#" className="text-teal-100 hover:text-white text-xs sm:text-sm transition-colors">Terms & Conditions</a>
           </div>
         </div>
       </div>

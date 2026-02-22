@@ -3,7 +3,7 @@ import { ArrowRight } from 'lucide-react';
 import Button from '../ui/Button';
 
 const Hero = () => (
-  <section className="pt-32 pb-20 lg:pt-32 lg:pb-24 min-h-screen flex items-center bg-slate-50 relative overflow-hidden">
+  <section id="hero" className="pt-32 pb-20 lg:pt-32 lg:pb-24 min-h-screen flex items-center bg-slate-50 relative overflow-hidden">
     <div className="absolute top-0 left-0 w-full h-full overflow-hidden z-0 pointer-events-none">
       <div className="absolute -top-40 -right-40 w-[600px] h-[600px] rounded-full bg-teal-100/50 blur-3xl opacity-50"></div>
       <div className="absolute top-40 -left-20 w-[400px] h-[400px] rounded-full bg-blue-100/50 blur-3xl opacity-50"></div>
@@ -16,16 +16,14 @@ const Hero = () => (
           <span className="w-2 h-2 rounded-full bg-teal-500 animate-pulse"></span>
           Solusi Digital Modern
         </div>
-        <h1 className="text-4xl md:text-5xl xl:text-6xl font-extrabold text-slate-800 leading-[1.15] mb-6 uppercase tracking-tight">
-          BUILD <span className="text-transparent bg-clip-text bg-teal-500">SMARTER</span><br />
-          SCALE FASTER
+        <h1 className="text-4xl md:text-5xl xl:text-6xl font-extrabold text-slate-800 leading-[1.15] mb-6 tracking-tight">
+        MEMBANGUN <span className="text-transparent bg-clip-text bg-teal-500">SOFTWARE</span><br />
+        MEMBANTU BISNIS TUMBUH
         </h1>
         <p className="text-slate-600 text-base md:text-lg leading-relaxed mb-8 max-w-lg">
-          Dengan produk digital yang dirancang untuk skalabilitas, performa, dan
-          pertumbuhan jangka panjang. Scribtware memandu Anda merancang,
-          mengembangkan, dan memelihara aplikasi web & software modern. Hubungi
-          kami, dan izinkan perusahan ini meningkatkan efisiensi operasional dan mendorong
-          pertumbuhan Anda.
+        Kami membantu bisnis membangun produk digital yang profesional dan modern.
+        Dirancang untuk meningkatkan kredibilitas, efisiensi, dan pertumbuhan bisnis Anda.
+        Website, aplikasi, dan software custom berkualitas tinggi untuk kebutuhan jangka panjang.
         </p>
         <div className="flex flex-col sm:flex-row gap-4">
           <Button className="group px-8 py-4 text-base">
