@@ -30,9 +30,11 @@ const Hero = () => (
             Mulai Proyek
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1.5 transition-transform" />
           </Button>
-          <Button variant="secondary" className="px-8 py-4 text-base">
+        <a href="#about">
+        <Button variant="secondary" className="px-8 py-4 text-base">
             Pelajari Lebih Lanjut
-          </Button>
+        </Button>
+        </a>
         </div>
       </div>
 

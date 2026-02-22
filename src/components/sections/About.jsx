@@ -9,7 +9,7 @@ const About = () => (
         <div className="relative w-full max-w-lg p-8 bg-slate-50 rounded-[3rem] border border-slate-100 shadow-sm">
         <img
       src={whyImage}
-      alt="Mengapa Scribtware"
+      alt="Kenapa Scribtware"
       className="w-full h-auto drop-shadow-md"
     />
         </div>
@@ -18,7 +18,7 @@ const About = () => (
       <div className="w-full lg:w-1/2 space-y-10">
         <div>
           <h2 className="text-3xl font-bold text-slate-800 mb-5 relative inline-block">
-            Mengapa Scribtware?
+            Kenapa Scribtware?
             <span className="absolute -bottom-2 left-0 w-1/3 h-1 bg-teal-500 rounded-full"></span>
           </h2>
           <p className="text-slate-600 leading-relaxed text-base">
@@ -32,7 +32,7 @@ const About = () => (
         </div>
         <div>
           <h2 className="text-3xl font-bold text-slate-800 mb-5 relative inline-block">
-            Pendekatan Strategis
+            Apa kelebihan Scribtware?
             <span className="absolute -bottom-2 left-0 w-1/3 h-1 bg-teal-500 rounded-full"></span>
           </h2>
           <p className="text-slate-600 leading-relaxed text-base">
