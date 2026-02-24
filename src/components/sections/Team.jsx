@@ -6,9 +6,9 @@ const Team = () => {
   const teamMembers = [
   { img: images.abyan, name: "Abyan", role: "CEO" },
   { img: images.aulia, name: "aulia", role: "CTO" },
-  { img: images.amri, name: "Siti", role: "Designer" },
-  { img: images.benny, name: "Siti", role: "Designer" },
-  { img: images.aji, name: "Siti", role: "Designer" },
+  { img: images.amri, name: "Siti", role: "engineer" },
+  { img: images.benny, name: "Siti", role: "engineer" },
+  { img: images.aji, name: "Siti", role: "Public Relation" },
 ];
 
   return (

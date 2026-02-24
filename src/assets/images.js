@@ -1,8 +1,8 @@
 import abyan from "./abyan.png";
 import aulia from "./aulia.png";
-import amri from "./amri.png";
-import benny from "./benny.png";
-import aji from "./aji.png";
+import amri from "./amri.jpeg";
+import benny from "./benny.jpeg";
+import aji from "./aji.jpeg";
 
 export const images = {
   abyan,
