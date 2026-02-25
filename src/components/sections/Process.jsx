@@ -39,11 +39,8 @@ const Process = () => (
                 {/* Card Container */}
                 <div className={`absolute left-0 right-0 ${isTop ? 'bottom-1/2 mb-8' : 'top-1/2 mt-8'}`}>
                   <div className="bg-white p-5 rounded-2xl border border-slate-100 shadow-md hover:shadow-lg hover:border-teal-200 transition-all duration-300 w-full relative z-30 flex flex-col items-center text-center group">
-                    <span className="text-4xl font-black text-slate-50 opacity-50 absolute top-2 right-4 z-0 transition-opacity group-hover:text-teal-50 group-hover:opacity-100">{step.number}</span>
-                    <div className="relative z-10">
-                      <h4 className="font-bold text-slate-800 text-sm mb-2 group-hover:text-teal-600 transition-colors">{step.title}</h4>
-                      <p className="text-slate-500 text-xs leading-relaxed">{step.desc}</p>
-                    </div>
+                    <h4 className="font-bold text-slate-800 text-sm mb-2 group-hover:text-teal-600 transition-colors">{step.title}</h4>
+                    <p className="text-slate-500 text-xs leading-relaxed">{step.desc}</p>
                   </div>
                 </div>
 
@@ -53,17 +50,27 @@ const Process = () => (
         </div>
       </div>
 
-      {/* Mobile & Tablet Layout */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-12 lg:hidden relative z-10">
-         {PROCESS_STEPS.map((step, idx) => (
-            <div key={idx} className="bg-white p-6 rounded-2xl border border-slate-100 shadow-md hover:shadow-lg transition-all duration-300 w-full relative overflow-hidden flex flex-col items-center text-center group">
-                <span className="text-6xl font-black text-slate-50 opacity-50 absolute -right-2 -top-2 z-0">{step.number}</span>
-                <div className="relative z-10">
-                    <h4 className="font-bold text-slate-800 text-base mb-3 text-teal-600">{step.number}. {step.title}</h4>
-                    <p className="text-slate-500 text-sm leading-relaxed">{step.desc}</p>
+      {/* Mobile & Tablet Layout — Vertical Stepper */}
+      <div className="flex flex-col mt-10 lg:hidden">
+        {PROCESS_STEPS.map((step, idx) => {
+          const isLast = idx === PROCESS_STEPS.length - 1;
+          return (
+            <div key={idx} className="flex gap-4">
+              {/* Left: dot + vertical line */}
+              <div className="flex flex-col items-center">
+                <div className="w-8 h-8 rounded-full bg-teal-500 text-white flex items-center justify-center text-xs font-bold shrink-0 shadow-sm shadow-teal-500/30">
+                  {step.number}
                 </div>
+                {!isLast && <div className="w-0.5 flex-1 bg-teal-100 my-1" />}
+              </div>
+              {/* Right: content */}
+              <div className={`flex-1 ${isLast ? 'pb-0' : 'pb-6'}`}>
+                <h4 className="font-bold text-slate-800 text-sm leading-snug mb-1">{step.title}</h4>
+                <p className="text-slate-500 text-xs leading-relaxed">{step.desc}</p>
+              </div>
             </div>
-         ))}
+          );
+        })}
       </div>
 
     </div>

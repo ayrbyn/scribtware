@@ -8,14 +8,14 @@ const Footer = () => {
     { label: 'Home', href: '#hero' },       // Mengarah ke Hero.jsx
     { label: 'Layanan', href: '#services' }, // Mengarah ke Services.jsx
     { label: 'Proses', href: '#process' },   // Mengarah ke Process.jsx
-    { label: 'Hubungi Kami', href: '#contact' }
+    { label: 'Hubungi Kami', href: 'https://wa.me/6282379097272' }
   ];
 
   // Daftar sosial media
   const socialLinks = [
     { icon: Linkedin, href: '#', label: 'LinkedIn' },
     { icon: Instagram, href: '#', label: 'Instagram' },
-    { icon: MessageCircle, href: '#', label: 'WhatsApp' },
+    { icon: MessageCircle, href: 'https://wa.me/6282379097272', label: 'WhatsApp' },
     { icon: Mail, href: 'mailto:info@scribtware.com', label: 'Email' }
   ];
 
@@ -64,7 +64,8 @@ const Footer = () => {
               {links.map((link, i) => (
                 <a 
                   key={i} 
-                  href={link.href} 
+                  href={link.href}
+                  {...(link.href.startsWith('http') ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
                   className="text-white text-lg md:text-xl font-medium hover:text-white transition-colors flex items-center group"
                 >
                   {/* Titik indikator */}

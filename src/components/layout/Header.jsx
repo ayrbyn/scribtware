@@ -31,7 +31,9 @@ const Header = () => {
             </nav>
 
             <div className="hidden md:block">
-              <Button>Mulai Proyek</Button>
+              <a href="https://wa.me/6282379097272" target="_blank" rel="noopener noreferrer">
+                <Button>Mulai Proyek</Button>
+              </a>
             </div>
 
             <button className="md:hidden text-slate-600" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
@@ -48,7 +50,9 @@ const Header = () => {
                 {link.label}
               </a>
             ))}
-            <Button className="w-full mt-2">Mulai Proyek</Button>
+            <a href="https://wa.me/6282379097272" target="_blank" rel="noopener noreferrer" className="w-full mt-2">
+              <Button className="w-full">Mulai Proyek</Button>
+            </a>
         </div>
       )}
     </header>

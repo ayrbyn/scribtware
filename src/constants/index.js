@@ -2,7 +2,6 @@ import {
   MonitorSmartphone, Settings, Cloud, Link2
 } from 'lucide-react';
 
-
 export const NAV_LINKS = [
   { label: 'Tentang Kami', href: '#about' },
   { label: 'Layanan', href: '#services' },
@@ -10,10 +9,10 @@ export const NAV_LINKS = [
 ];
 
 export const SERVICES_DATA = [
-  { icon: MonitorSmartphone, title: "Web dan Software Custom", desc: "Solusi software yang dirancang khusus sesuai kebutuhan bisnis Anda." },
-  { icon: Settings, title: "Sistem Internal dan Otomatisasi", desc: "Meningkatkan efisiensi operasional dengan sistem terintegrasi." },
-  { icon: Cloud, title: "Platform SaaS dan Sistem Scalable", desc: "Software yang siap berkembang bersama bisnis Anda." },
-  { icon: Link2, title: "Integrasi dan Arsitektur Sistem", desc: "Menghubungkan semua sistem bisnis menjadi satu solusi terpadu." },
+  { icon: MonitorSmartphone, title: "Web dan Software Custom", desc: "Kompetitor sudah online. Saatnya Anda hadir dengan software yang benar-benar bekerja untuk bisnis Anda — bukan template generik." },
+  { icon: Settings, title: "Sistem Internal dan Otomatisasi", desc: "Hentikan pekerjaan manual yang membuang waktu. Kami bangun sistem yang bekerja otomatis sehingga tim Anda fokus pada hal yang penting." },
+  { icon: Cloud, title: "Platform SaaS dan Sistem Scalable", desc: "Mulai dari 10 pengguna, siap untuk 10.000. Kami rancang arsitektur yang tumbuh bersama ambisi bisnis Anda tanpa perlu rebuild dari nol." },
+  { icon: Link2, title: "Integrasi dan Arsitektur Sistem", desc: "Punya banyak tools tapi tidak tersambung satu sama lain? Kami satukan semua sistem Anda menjadi satu ekosistem yang efisien dan terpadu." },
 ];
 
 export const PROCESS_STEPS = [

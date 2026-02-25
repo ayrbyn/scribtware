@@ -1,55 +1,92 @@
 import React from 'react';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Code2, Layers, CheckCircle2 } from 'lucide-react';
 import Button from '../ui/Button';
 
+const VALUE_PROPS = [
+  { icon: Code2,        text: 'Web, Aplikasi & Software Custom' },
+  { icon: Layers,       text: 'Sistem Internal & Platform SaaS' },
+  { icon: CheckCircle2, text: 'Konsultasi gratis, tanpa komitmen' },
+];
+
 const Hero = () => (
-  <section id="hero" className="pt-32 pb-20 lg:pt-32 lg:pb-24 min-h-screen flex items-center bg-slate-50 relative overflow-hidden">
-    <div className="absolute top-0 left-0 w-full h-full overflow-hidden z-0 pointer-events-none">
-      <div className="absolute -top-40 -right-40 w-[600px] h-[600px] rounded-full bg-teal-100/50 blur-3xl opacity-50"></div>
-      <div className="absolute top-40 -left-20 w-[400px] h-[400px] rounded-full bg-blue-100/50 blur-3xl opacity-50"></div>
+  <section
+    id="hero"
+    className="relative min-h-screen flex items-center justify-center bg-slate-50 overflow-hidden pt-24 pb-16"
+  >
+
+    {/* ── Abstract backdrop ── */}
+    <div className="absolute inset-0 pointer-events-none select-none">
+
+      {/* Large soft blobs */}
+      <div className="absolute top-[-20%] left-[-10%] w-[700px] h-[700px] rounded-full bg-teal-100/60 blur-[120px]" />
+      <div className="absolute bottom-[-20%] right-[-10%] w-[600px] h-[600px] rounded-full bg-slate-200/80 blur-[100px]" />
+
+      {/* Dot grid */}
+      <svg className="absolute inset-0 w-full h-full opacity-[0.35]" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <pattern id="dots" x="0" y="0" width="24" height="24" patternUnits="userSpaceOnUse">
+            <circle cx="1" cy="1" r="1" fill="#94a3b8" />
+          </pattern>
+        </defs>
+        <rect width="100%" height="100%" fill="url(#dots)" />
+      </svg>
+
+      {/* Decorative rings */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full border border-teal-200/30" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full border border-teal-200/20" />
+
+      {/* Floating accent blobs — top right & bottom left */}
+      <div className="absolute top-24 right-24 w-3 h-3 rounded-full bg-teal-400/60" />
+      <div className="absolute top-32 right-40 w-1.5 h-1.5 rounded-full bg-teal-300/60" />
+      <div className="absolute bottom-32 left-24 w-2.5 h-2.5 rounded-full bg-teal-400/50" />
+      <div className="absolute bottom-24 left-40 w-1.5 h-1.5 rounded-full bg-teal-300/50" />
     </div>
 
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex flex-col lg:flex-row items-center relative z-10 gap-12 lg:gap-0">
-      
-      <div className="w-full lg:w-1/2 lg:pr-12">
-        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-teal-100/50 border border-teal-200 text-teal-700 text-xs font-semibold mb-6">
-          <span className="w-2 h-2 rounded-full bg-teal-500 animate-pulse"></span>
-          Solusi Digital Modern
-        </div>
-        <h1 className="text-4xl md:text-5xl xl:text-6xl font-extrabold text-slate-800 leading-[1.15] mb-6 tracking-tight">
-        MEMBANGUN <span className="text-transparent bg-clip-text bg-teal-500">SOFTWARE</span><br />
-        MEMBANTU BISNIS TUMBUH
-        </h1>
-        <p className="text-slate-600 text-base md:text-lg leading-relaxed mb-8 max-w-lg">
-        Kami membantu bisnis membangun produk digital yang profesional dan modern.
-        Dirancang untuk meningkatkan kredibilitas, efisiensi, dan pertumbuhan bisnis Anda.
-        Website, aplikasi, dan software custom berkualitas tinggi untuk kebutuhan jangka panjang.
-        </p>
-        <div className="flex flex-col sm:flex-row gap-4">
-          <Button className="group px-8 py-4 text-base">
-            Mulai Proyek
-            <ArrowRight className="w-4 h-4 group-hover:translate-x-1.5 transition-transform" />
-          </Button>
-        <a href="#about">
-        <Button variant="secondary" className="px-8 py-4 text-base">
-            Pelajari Lebih Lanjut
-        </Button>
-        </a>
-        </div>
+    {/* ── Content ── */}
+    <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center text-center gap-6">
+
+      {/* Badge */}
+      <div className="inline-flex items-center gap-2 px-3.5 py-2 rounded-full bg-white border border-teal-200 text-teal-700 text-sm font-semibold shadow-sm">
+        <span className="w-2 h-2 rounded-full bg-teal-500 animate-pulse shrink-0" />
+        Solusi Digital Anda
       </div>
 
-      <div className="w-full lg:w-1/2 relative flex justify-center lg:justify-end mt-10 lg:mt-0">
-        <div className="relative w-full max-w-lg aspect-square lg:aspect-[4/5] rounded-3xl z-10 overflow-hidden shadow-2xl shadow-slate-300/50 group">
-          {/* DIUBAH: Gambar pria berjas diganti dengan gambar monitor kode dari Unsplash */}
-          <img 
-            src="https://images.unsplash.com/photo-1542831371-29b0f74f9713?auto=format&fit=crop&w=1000&q=80" 
-            alt="Programming Code" 
-            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 to-transparent"></div>
-        </div>
-        <div className="absolute -bottom-6 -left-6 lg:left-auto lg:-right-6 lg:top-6 w-full max-w-lg aspect-square lg:aspect-[4/5] rounded-3xl border-2 border-teal-500/20 z-0"></div>
-        <div className="absolute -bottom-8 -left-8 lg:left-auto lg:-right-8 lg:top-8 w-full max-w-lg aspect-square lg:aspect-[4/5] rounded-3xl bg-teal-500 z-[-1] opacity-10"></div>
+      {/* Headline — 5 kata inti */}
+      {/* Headline */}
+      <h1 className="text-4xl sm:text-5xl md:text-6xl xl:text-7xl font-extrabold text-slate-800 leading-[1.1] tracking-tight">
+        Bisnis Lebih Maju,
+        <br />
+        <span className="text-teal-500">Dimulai dari Scribtware.</span>
+      </h1>
+
+      {/* Sub-headline */}
+      <p className="text-slate-500 text-sm md:text-base lg:text-lg leading-relaxed max-w-xl">
+        Kami bangun software custom yang efisien dan scalable, dirancang khusus untuk kebutuhan dan pertumbuhan bisnis Anda.
+      </p>
+
+      {/* Value props */}
+      <ul className="flex flex-col sm:flex-row flex-wrap justify-center gap-y-2 gap-x-6 text-sm text-slate-600">
+        {VALUE_PROPS.map(({ icon: Icon, text }) => (
+          <li key={text} className="flex items-center gap-2 font-medium">
+            <Icon className="w-4 h-4 text-teal-500 shrink-0" />
+            {text}
+          </li>
+        ))}
+      </ul>
+
+      {/* CTAs */}
+      <div className="flex flex-col sm:flex-row gap-3 pt-2 w-full sm:w-auto">
+        <a href="https://wa.me/6282379097272" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
+          <Button className="group px-8 py-3.5 text-base w-full">
+            Mulai Proyek
+            <ArrowRight className="w-4 h-4 group-hover:translate-x-1.5 transition-transform duration-200" />
+          </Button>
+        </a>
+        <a href="#services" className="w-full sm:w-auto">
+          <Button variant="secondary" className="px-8 py-3.5 text-base w-full">
+            Lihat Layanan
+          </Button>
+        </a>
       </div>
 
     </div>

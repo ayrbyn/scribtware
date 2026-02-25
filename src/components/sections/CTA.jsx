@@ -18,11 +18,12 @@ const CTA = () => (
           <p className="text-teal-50 text-base md:text-lg opacity-90 leading-relaxed">Jangan ragu hubungi tim ahli kami untuk berkonsultasi secara mendalam tentang produk dan kebutuhan bisnis Anda.</p>
         </div>
         
-        {/* Tombol CTA */}
         <div className="relative z-10 shrink-0">
-          <Button variant="white" className="py-4 px-10 text-lg rounded-full shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 text-teal-600 font-bold">
-            Hubungi Kami Sekarang
-          </Button>
+          <a href="https://wa.me/6282379097272" target="_blank" rel="noopener noreferrer">
+            <Button variant="white" className="py-4 px-10 text-lg rounded-full shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 text-teal-600 font-bold">
+              Hubungi Kami Sekarang
+            </Button>
+          </a>
         </div>
         
       </div>
