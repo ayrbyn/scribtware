@@ -9,6 +9,8 @@ const Logo = () => (
         src={logo}
         alt="Scribtware Logo"
         className="w-full h-full object-contain"
+        fetchPriority="high"
+        loading="eager"
       />
     </div>
 
