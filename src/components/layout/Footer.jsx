@@ -24,9 +24,9 @@ const Footer = () => {
       
       {/* Efek dekorasi lingkaran (Shape) di sebelah kanan latar belakang (Diperkecil) */}
       <div className="absolute right-0 top-0 w-full md:w-1/2 h-full pointer-events-none overflow-hidden flex justify-end z-0">
-        <div className="absolute -right-16 top-[-20%] w-[28rem] h-[28rem] bg-teal-600/30 rounded-full blur-2xl"></div>
-        <div className="absolute right-8 top-[15%] w-[18rem] h-[18rem] bg-teal-600/40 rounded-full"></div>
-        <div className="absolute right-[-5%] bottom-[-20%] w-[16rem] h-[16rem] bg-teal-700/30 rounded-full"></div>
+        <div className="hidden md:block absolute -right-16 top-[-20%] w-[28rem] h-[28rem] bg-teal-600/30 rounded-full blur-2xl"></div>
+        <div className="hidden md:block absolute right-8 top-[15%] w-[18rem] h-[18rem] bg-teal-600/40 rounded-full"></div>
+        <div className="hidden md:block absolute right-[-5%] bottom-[-20%] w-[16rem] h-[16rem] bg-teal-700/30 rounded-full"></div>
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">

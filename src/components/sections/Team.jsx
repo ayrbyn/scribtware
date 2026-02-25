@@ -49,7 +49,7 @@ const Team = () => {
     <section className="bg-white py-20 px-4 sm:px-6 lg:px-8 text-center font-sans overflow-hidden">
       {/* Header Section dengan Animasi Fade-in Down */}
       <div 
-        className={`max-w-4xl mx-auto mb-20 transition-all duration-1000 transform ${
+        className={`max-w-4xl mx-auto mb-20 transition-opacity transition-transform duration-700 transform ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-10'
         }`}
       >
@@ -67,17 +67,17 @@ const Team = () => {
         {teamMembers.map((member, idx) => (
           <div 
             key={idx} 
-            className={`flex flex-col items-center w-[140px] sm:w-[180px] md:w-[200px] lg:flex-1 lg:min-w-[180px] transition-all duration-700 transform ${
+            className={`flex flex-col items-center w-[140px] sm:w-[180px] md:w-[200px] lg:flex-1 lg:min-w-[180px] transition-[opacity,transform] duration-500 transform ${
               isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'
             }`}
             style={{ transitionDelay: `${idx * 150}ms` }}
           >
             {/* Image Container dengan Efek Hover Teal */}
-            <div className="relative w-28 h-28 sm:w-32 sm:h-32 md:w-40 md:h-40 mb-6 rounded-full overflow-hidden border-2 border-transparent group transition-all duration-500 hover:shadow-2xl hover:shadow-teal-500/20 ring-offset-4 hover:ring-2 ring-teal-500/30">
+            <div className="relative w-28 h-28 sm:w-32 sm:h-32 md:w-40 md:h-40 mb-6 rounded-full overflow-hidden border-2 border-transparent group transition-shadow duration-300 hover:shadow-xl hover:shadow-teal-500/20">
               <img 
                 src={member.img} 
                 alt={member.name} 
-                className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 ease-in-out scale-100 group-hover:scale-110"
+                className="w-full h-full object-cover md:grayscale group-hover:grayscale-0 transition-[transform,filter] duration-500 ease-in-out group-hover:scale-105"
                 onError={(e) => { e.target.src = `https://ui-avatars.com/api/?name=${member.name}&background=0D9488&color=fff&rounded=true`; }}
               />
               <div className="absolute inset-0 bg-teal-600/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
