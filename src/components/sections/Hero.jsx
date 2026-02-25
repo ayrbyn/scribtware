@@ -15,14 +15,19 @@ const Hero = () => (
   >
 
     {/* ── Abstract backdrop ── */}
-    <div className="absolute inset-0 pointer-events-none select-none">
+    <div
+      className="absolute inset-0 pointer-events-none select-none"
+      style={{ willChange: 'transform', transform: 'translateZ(0)' }}
+    >
+      {/* Large soft blobs — hidden on mobile (too expensive for GPU) */}
+      <div className="hidden lg:block absolute top-[-20%] left-[-10%] w-[600px] h-[600px] rounded-full bg-teal-100/50 blur-[80px]" />
+      <div className="hidden lg:block absolute bottom-[-20%] right-[-10%] w-[500px] h-[500px] rounded-full bg-slate-200/60 blur-[80px]" />
 
-      {/* Large soft blobs */}
-      <div className="absolute top-[-20%] left-[-10%] w-[700px] h-[700px] rounded-full bg-teal-100/60 blur-[120px]" />
-      <div className="absolute bottom-[-20%] right-[-10%] w-[600px] h-[600px] rounded-full bg-slate-200/80 blur-[100px]" />
+      {/* Mobile-only: simple lightweight gradient instead of blur */}
+      <div className="lg:hidden absolute top-0 left-0 right-0 h-64 bg-gradient-to-b from-teal-50/60 to-transparent" />
 
-      {/* Dot grid */}
-      <svg className="absolute inset-0 w-full h-full opacity-[0.35]" xmlns="http://www.w3.org/2000/svg">
+      {/* Dot grid — desktop only */}
+      <svg className="hidden lg:block absolute inset-0 w-full h-full opacity-[0.3]" xmlns="http://www.w3.org/2000/svg">
         <defs>
           <pattern id="dots" x="0" y="0" width="24" height="24" patternUnits="userSpaceOnUse">
             <circle cx="1" cy="1" r="1" fill="#94a3b8" />
@@ -31,15 +36,15 @@ const Hero = () => (
         <rect width="100%" height="100%" fill="url(#dots)" />
       </svg>
 
-      {/* Decorative rings */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full border border-teal-200/30" />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full border border-teal-200/20" />
+      {/* Decorative rings — desktop only */}
+      <div className="hidden lg:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full border border-teal-200/30" />
+      <div className="hidden lg:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full border border-teal-200/20" />
 
-      {/* Floating accent blobs — top right & bottom left */}
-      <div className="absolute top-24 right-24 w-3 h-3 rounded-full bg-teal-400/60" />
-      <div className="absolute top-32 right-40 w-1.5 h-1.5 rounded-full bg-teal-300/60" />
-      <div className="absolute bottom-32 left-24 w-2.5 h-2.5 rounded-full bg-teal-400/50" />
-      <div className="absolute bottom-24 left-40 w-1.5 h-1.5 rounded-full bg-teal-300/50" />
+      {/* Floating accent dots — desktop only */}
+      <div className="hidden lg:block absolute top-24 right-24 w-3 h-3 rounded-full bg-teal-400/60" />
+      <div className="hidden lg:block absolute top-32 right-40 w-1.5 h-1.5 rounded-full bg-teal-300/60" />
+      <div className="hidden lg:block absolute bottom-32 left-24 w-2.5 h-2.5 rounded-full bg-teal-400/50" />
+      <div className="hidden lg:block absolute bottom-24 left-40 w-1.5 h-1.5 rounded-full bg-teal-300/50" />
     </div>
 
     {/* ── Content ── */}
