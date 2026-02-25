@@ -1,7 +1,7 @@
 import { 
-  MonitorSmartphone, Settings, Briefcase, Cloud, Server, 
-  MessageCircle, Link2, RefreshCw 
+  MonitorSmartphone, Settings, Cloud, Link2
 } from 'lucide-react';
+
 
 export const NAV_LINKS = [
   { label: 'Tentang Kami', href: '#about' },
@@ -10,14 +10,10 @@ export const NAV_LINKS = [
 ];
 
 export const SERVICES_DATA = [
-  { icon: MonitorSmartphone, title: "Pengembangan Aplikasi Web", desc: "Membangun aplikasi web custom dengan performa tinggi, responsif, dan aman untuk operasi bisnis yang kompleks." },
-  { icon: Settings, title: "Pengembangan Sistem Custom", desc: "Menyediakan solusi end-to-end yang disesuaikan dengan kebutuhan unik bisnis Anda untuk meningkatkan efisiensi operasional." },
-  { icon: Briefcase, title: "Pengembangan Sistem Enterprise", desc: "Membangun sistem terpusat berskala besar untuk mendukung fungsionalitas yang kompleks dan lintas departemen." },
-  { icon: Cloud, title: "Pengembangan Platform SaaS", desc: "Merancang dan membangun arsitektur Software as a Service yang scalable, andal, dan siap melayani ribuan pengguna." },
-  { icon: Server, title: "Pengembangan Sistem Internal", desc: "Membuat dashboard, sistem manajemen, dan tools internal untuk mendukung operasional bisnis." },
-  { icon: MessageCircle, title: "Konsultasi Gratis", desc: "Kami menyediakan sesi konsultasi gratis untuk mendiskusikan kebutuhan, mengeksplorasi ide, dan memberikan saran strategis." },
-  { icon: Link2, title: "Integrasi Sistem Eksternal", desc: "Mengintegrasikan berbagai platform, API, dan layanan pihak ketiga ke dalam sistem utama Anda secara mulus." },
-  { icon: RefreshCw, title: "Private and Secure Solutions", desc: "Membangun sistem software yang aman, private, dan terlindungi untuk melindungi data dan operasional bisnis Anda dari risiko." },
+  { icon: MonitorSmartphone, title: "Web dan Software Custom", desc: "Solusi software yang dirancang khusus sesuai kebutuhan bisnis Anda." },
+  { icon: Settings, title: "Sistem Internal dan Otomatisasi", desc: "Meningkatkan efisiensi operasional dengan sistem terintegrasi." },
+  { icon: Cloud, title: "Platform SaaS dan Sistem Scalable", desc: "Software yang siap berkembang bersama bisnis Anda." },
+  { icon: Link2, title: "Integrasi dan Arsitektur Sistem", desc: "Menghubungkan semua sistem bisnis menjadi satu solusi terpadu." },
 ];
 
 export const PROCESS_STEPS = [

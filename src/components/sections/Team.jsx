@@ -54,11 +54,10 @@ const Team = () => {
         }`}
       >
         <p className="text-teal-600 font-bold text-sm uppercase tracking-[0.2em] mb-3">Tim Kami</p>
-        <h2 className="text-4xl md:text-6xl font-extrabold text-gray-900 mb-4 tracking-tight text-balance">Meet our Team</h2>
+        <h2 className="text-4xl md:text-6xl font-extrabold text-gray-900 mb-4 tracking-tight text-balance">Tim di Balik Software Anda</h2>
         <div className="w-16 h-1 bg-teal-500 mx-auto mb-8 rounded-full"></div>
         <p className="text-gray-500 max-w-2xl mx-auto leading-relaxed text-lg">
-          Tim Scribtware terdiri dari desainer dan developer yang berpengalaman dalam membangun produk digital modern. 
-          Kami berdedikasi untuk menghasilkan solusi teknologi dengan kualitas tinggi yang membantu bisnis berkembang dan beradaptasi dengan tren industri yang dinamis. 
+          Tim engineer dan designer yang fokus membangun software scalable, aman, dan siap mendukung pertumbuhan bisnis Anda.
         </p>
       </div>
 
