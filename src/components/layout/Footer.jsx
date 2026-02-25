@@ -13,7 +13,7 @@ const Footer = () => {
 
   // Daftar sosial media
   const socialLinks = [
-    { icon: Linkedin, href: '#', label: 'LinkedIn' },
+    { icon: Linkedin, href: 'https://linkedin.com/company/scribtware', label: 'LinkedIn' },
     { icon: Instagram, href: '#', label: 'Instagram' },
     { icon: MessageCircle, href: 'https://wa.me/6282379097272', label: 'WhatsApp' },
     { icon: Mail, href: 'mailto:info@scribtware.com', label: 'Email' }

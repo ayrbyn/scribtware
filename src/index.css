@@ -1,5 +1,33 @@
 @import "tailwindcss";
 
-html {
-  scroll-behavior: smooth;
+@theme {
+  --font-sans: 'Open Sans', ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Heading harmony — tight tracking at large sizes */
+  h1 {
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+  }
+  h2 {
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+  }
+  h3 {
+    letter-spacing: -0.01em;
+    line-height: 1.3;
+  }
+
+  /* Body — comfortable reading */
+  p {
+    line-height: 1.7;
+  }
 }
