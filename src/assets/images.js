@@ -1,4 +1,4 @@
-import abyan from "./abyan.png";
+import abyan from "./abyan.jpeg";
 import aulia from "./aulia.png";
 import amri from "./amri.jpeg";
 import benny from "./benny.jpeg";
