@@ -16,31 +16,31 @@ const Team = () => {
     { 
       img: images.abyan, 
       name: "Abyan", 
-      role: "CEO",
+      role: "Founder",
       social: { ig: "https://www.instagram.com/_abyan77/", email: "abyan.dzakky77@gmail.com" }
     },
     { 
       img: images.aulia, 
       name: "Aulia", 
-      role: "CTO",
+      role: "Founder",
       social: { ig: "https://www.instagram.com/m.aulia_rahmannst.pdf/", email: "m.auliarnasution@gmail.com" }
     },
     { 
       img: images.amri, 
       name: "Amri", 
-      role: "Engineer",
+      role: "Founder",
       social: { ig: "https://www.instagram.com/zikkriamri/", email: "zikkriamri123@gmail.com" }
     },
     { 
       img: images.benny, 
       name: "Benny", 
-      role: "Engineer",
+      role: "Founder",
       social: { ig: "https://www.instagram.com/bennytamba_/", email: "bennyaryan30@gmail.com" }
     },
     { 
       img: images.aji, 
       name: "Adjie", 
-      role: "Public Relation",
+      role: "Founder",
       social: { ig: "https://www.instagram.com/rifky.adjie/", email: "rifkyadjiekhairmalau12@gmail.com" }
     },
   ];
