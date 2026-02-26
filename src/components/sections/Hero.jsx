@@ -3,9 +3,9 @@ import { ArrowRight, Code2, Layers, CheckCircle2 } from 'lucide-react';
 import Button from '../ui/Button';
 
 const VALUE_PROPS = [
-  { icon: Code2,        text: 'Web, Aplikasi & Software Custom' },
-  { icon: Layers,       text: 'Sistem Internal & Platform SaaS' },
-  { icon: CheckCircle2, text: 'Konsultasi gratis, tanpa komitmen' },
+  { icon: Code2,        text: 'Website, Aplikasi & Software Custom' },
+  { icon: Layers,       text: 'Sistem Internal, SaaS & Otomatisasi' },
+  { icon: CheckCircle2, text: 'Konsultasi awal gratis, tanpa komitmen' },
 ];
 
 const Hero = () => (
@@ -66,7 +66,7 @@ const Hero = () => (
 
       {/* Sub-headline */}
       <p className="text-slate-500 text-sm md:text-base lg:text-lg leading-relaxed max-w-xl">
-        Kami bangun software custom yang efisien dan scalable, dirancang khusus untuk kebutuhan dan pertumbuhan bisnis Anda.
+        Kami merancang dan membangun software yang membantu bisnis Anda bergerak lebih efisien, melayani lebih baik, dan tumbuh lebih cepat.
       </p>
 
       {/* Value props */}

@@ -14,14 +14,14 @@ const CTA = () => (
         
         {/* Teks Konten */}
         <div className="text-white md:max-w-xl text-center md:text-left relative z-10">
-          <h3 className="text-3xl md:text-4xl font-bold mb-4">Butuh Informasi Lebih Lanjut?</h3>
-          <p className="text-teal-50 text-base md:text-lg opacity-90 leading-relaxed">Jangan ragu hubungi tim ahli kami untuk berkonsultasi secara mendalam tentang produk dan kebutuhan bisnis Anda.</p>
+          <h3 className="text-3xl md:text-4xl font-bold mb-4">Mulai dari percakapan sederhana.</h3>
+          <p className="text-teal-50 text-base md:text-lg opacity-90 leading-relaxed">Ceritakan kebutuhan Anda dan kami akan tunjukkan bagaimana kami bisa membantu. Gratis, tanpa komitmen apapun.</p>
         </div>
         
         <div className="relative z-10 shrink-0">
           <a href="https://wa.me/6282379097272" target="_blank" rel="noopener noreferrer">
             <Button variant="white" className="py-4 px-10 text-lg rounded-full shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 text-teal-600 font-bold">
-              Hubungi Kami Sekarang
+              Mulai Percakapan
             </Button>
           </a>
         </div>

@@ -9,17 +9,17 @@ export const NAV_LINKS = [
 ];
 
 export const SERVICES_DATA = [
-  { icon: MonitorSmartphone, title: "Web dan Software Custom", desc: "Kompetitor sudah online. Saatnya Anda hadir dengan software yang benar-benar bekerja untuk bisnis Anda, bukan template generik." },
-  { icon: Settings, title: "Sistem Internal dan Otomatisasi", desc: "Hentikan pekerjaan manual yang membuang waktu. Kami bangun sistem yang bekerja otomatis sehingga tim Anda fokus pada hal yang penting." },
-  { icon: Cloud, title: "Platform SaaS dan Sistem Scalable", desc: "Mulai dari 10 pengguna, siap untuk 10.000. Kami rancang arsitektur yang tumbuh bersama ambisi bisnis Anda tanpa perlu rebuild dari nol." },
-  { icon: Link2, title: "Integrasi dan Arsitektur Sistem", desc: "Punya banyak tools tapi tidak tersambung satu sama lain? Kami satukan semua sistem Anda menjadi satu ekosistem yang efisien dan terpadu." },
+  { icon: MonitorSmartphone, title: "Website & Aplikasi Custom", desc: "Software yang dirancang sesuai alur kerja bisnis Anda, bukan template yang dipaksakan untuk muat ke kebutuhan Anda." },
+  { icon: Settings, title: "Sistem Internal & Otomatisasi", desc: "Proses yang berulang dan memakan waktu bisa dijalankan secara otomatis, sehingga tim Anda bisa fokus pada pekerjaan yang lebih bernilai." },
+  { icon: Cloud, title: "Platform SaaS & Sistem Scalable", desc: "Arsitektur yang dirancang untuk tumbuh bersama bisnis Anda, dari pengguna pertama hingga ribuan pengguna aktif." },
+  { icon: Link2, title: "Integrasi & Arsitektur Sistem", desc: "Sistem yang terfragmentasi membuat data tidak konsisten dan tim tidak efisien. Kami satukan semua tools Anda menjadi satu ekosistem yang kohesif." },
 ];
 
 export const PROCESS_STEPS = [
-  { number: "01", title: "Pahami & Rencanakan", desc: "Kami mulai dengan memahami visi, tujuan bisnis, dan tantangan yang Anda hadapi, lalu merancang strategi dan arsitektur sistem yang tepat sebagai fondasi produk." },
-  { number: "02", title: "Bangun", desc: "Tim engineer kami mengubah rencana menjadi produk nyata menggunakan teknologi modern dan praktik terbaik, dengan komunikasi terbuka di setiap langkahnya." },
-  { number: "03", title: "Uji & Sempurnakan", desc: "Setiap fitur diuji secara menyeluruh dari sisi fungsionalitas, performa, dan keamanan sebelum siap dihadirkan ke pengguna." },
-  { number: "04", title: "Luncurkan & Dukung", desc: "Produk diluncurkan ke lingkungan produksi dengan transisi mulus, dan kami tetap hadir memberikan dukungan teknis jangka panjang setelah go-live." },
+  { number: "01", title: "Pahami & Rencanakan", desc: "Kami mulai dengan memahami bisnis, tujuan, dan tantangan yang ingin Anda selesaikan, sebelum satu baris kode pun ditulis." },
+  { number: "02", title: "Desain & Arsitektur", desc: "Bersama Anda, kami merancang solusi dan arsitektur sistem yang paling sesuai sebagai fondasi yang solid sebelum pembangunan dimulai." },
+  { number: "03", title: "Bangun & Uji", desc: "Tim kami membangun setiap fitur dengan standar kualitas tinggi dan mengujinya secara menyeluruh sebelum sampai ke tangan pengguna." },
+  { number: "04", title: "Luncurkan & Dukung", desc: "Produk go-live dengan transisi yang mulus. Kami tetap hadir setelah peluncuran untuk memastikan semuanya berjalan sesuai harapan." },
 ];
 
 export const FOOTER_LINKS = {

@@ -36,7 +36,7 @@ const Footer = () => {
           <div className="flex flex-col space-y-4">
             <Logo />
             <p className="text-teal-50 text-xs sm:text-sm leading-relaxed max-w-sm">
-              Scribtware berinovasi melalui layanan pengembangan perangkat lunak modern untuk bisnis Anda. Kami membantu perusahaan bertransformasi dan siap menghadapi tantangan era digital.
+              Kami bantu bisnis di Indonesia membangun software yang benar-benar bekerja untuk mereka. Bukan sekadar ada, tapi benar-benar berdampak.
             </p>
             
             {/* Kumpulan Tombol Sosial Media */}

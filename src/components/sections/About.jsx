@@ -4,18 +4,18 @@ import { Target, Zap, ShieldCheck } from 'lucide-react';
 const PILLARS = [
   {
     icon: Target,
-    title: 'Dibuat Khusus untuk Anda',
-    desc: 'Tidak ada template, tidak ada solusi copy-paste. Setiap baris kode kami tulis sesuai kebutuhan dan alur kerja bisnis Anda yang unik.',
+    title: 'Dibuat untuk Bisnis Anda',
+    desc: 'Setiap proyek kami mulai dari pemahaman mendalam tentang cara bisnis Anda bekerja. Solusi yang kami bangun menyesuaikan kebutuhan Anda, bukan sebaliknya.',
   },
   {
     icon: Zap,
-    title: 'Fokus pada Dampak Bisnis',
-    desc: 'Setiap keputusan teknis kami arahkan ke satu tujuan: hasil nyata bagi bisnis Anda. Bukan sekadar software yang berjalan, tapi software yang berdampak.',
+    title: 'Berorientasi pada Nilai',
+    desc: 'Software yang baik adalah yang benar-benar digunakan dan memberikan dampak nyata. Setiap keputusan teknis kami selalu kembali ke pertanyaan itu.',
   },
   {
     icon: ShieldCheck,
-    title: 'Transparan dari Awal hingga Akhir',
-    desc: 'Estimasi biaya jelas, progress selalu terbuka, dan tidak ada kejutan di tengah jalan. Kami percaya kepercayaan dibangun lewat komunikasi, bukan janji.',
+    title: 'Transparan & Dapat Diandalkan',
+    desc: 'Anda selalu tahu apa yang sedang dikerjakan, berapa biayanya, dan kapan selesainya. Tidak ada kejutan di tengah jalan.',
   },
 ];
 
@@ -33,8 +33,7 @@ const About = () => (
           <span className="text-teal-500">Kami membangun solusi.</span>
         </h2>
         <p className="text-slate-500 text-base md:text-lg leading-relaxed">
-          Scribtware hadir untuk menjadi partner teknologi jangka panjang bisnis Anda,
-          bukan vendor yang datang lalu pergi setelah proyek selesai.
+          Scribtware hadir sebagai partner teknologi, bukan sekadar vendor. Kami membangun software yang relevan dengan cara bisnis Anda bekerja dan terus berkembang bersama Anda.
         </p>
       </div>
 
