@@ -11,6 +11,7 @@ import Services from './components/sections/Services';
 import Process from './components/sections/Process';
 import Team from './components/sections/Team';
 import CTA from './components/sections/CTA';
+import PortfolioSection from './components/sections/PortfolioSection';
 
 export default function App() {
   return (
@@ -20,6 +21,7 @@ export default function App() {
         <Hero />
         <About />
         <Services />
+        <PortfolioSection />
         <Process />
         <Team />
         <CTA />
