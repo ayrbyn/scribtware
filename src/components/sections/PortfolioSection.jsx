@@ -18,6 +18,11 @@ const PORTFOLIO_DATA = [
     title: "Professional Company Profile",
     url: "https://comprolorem.vercel.app",
     desc: "Website company profile modern dengan desain clean dan profesional."
+  },
+  {
+    title: "Online Course Landing Page",
+    url: "https://coursecompro.vercel.app/",
+    desc: "Website company profile course mandarin modern dengan desain clean dan profesional."
   }
 ];
 
