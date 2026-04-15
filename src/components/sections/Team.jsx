@@ -1,6 +1,6 @@
 import { images } from "../../assets/images";
 import React, { useEffect, useState } from "react";
-import { Instagram, Mail } from "lucide-react";
+import { Mail } from "lucide-react";
 
 const Team = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -126,7 +126,7 @@ const Team = () => {
                 className="text-gray-400 hover:text-teal-600 transition-colors duration-300 transform hover:scale-110"
                 aria-label={`${member.name} Instagram`}
               >
-                <Instagram size={18} />
+                {/* <Instagram size={18} /> */}
               </a>
               <a
                 href={`mailto:${member.social.email}`}
