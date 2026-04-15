@@ -1,29 +1,34 @@
-import React, { useState } from 'react';
-import SectionTitle from '../ui/SectionTitle';
-import Reveal from '../ui/Reveal';
-import { ExternalLink, ChevronLeft, ChevronRight } from 'lucide-react';
+import React, { useState } from "react";
+import SectionTitle from "../ui/SectionTitle";
+import Reveal from "../ui/Reveal";
+import { ExternalLink, ChevronLeft, ChevronRight } from "lucide-react";
+import { Badge } from "../ui/badge";
 
 const PORTFOLIO_DATA = [
   {
     title: "PhotoBooth 1",
     url: "https://photoboothone.vercel.app",
-    desc: "Website company profile photobooth modern dengan tampilan interaktif dan desain yang menarik"
+    desc: "Website company profile photobooth modern dengan tampilan interaktif dan desain yang menarik",
+    type: "Photobooth",
   },
   {
     title: "PhotoBooth 2",
     url: "https://photoboth-two.vercel.app",
-    desc: "Website landing page layanan photobooth dengan desain playful dan warna pastel yang menarik."
+    desc: "Website landing page layanan photobooth dengan desain playful dan warna pastel yang menarik.",
+    type: "Photobooth",
   },
   {
     title: "Professional Company Profile",
     url: "https://comprolorem.vercel.app",
-    desc: "Website company profile modern dengan desain clean dan profesional."
+    desc: "Website company profile modern dengan desain clean dan profesional.",
+    type: "Profile Company",
   },
   {
     title: "Online Course Landing Page",
     url: "https://coursecompro.vercel.app/",
-    desc: "Website company profile course mandarin modern dengan desain clean dan profesional."
-  }
+    desc: "Website company profile course mandarin modern dengan desain clean dan profesional.",
+    type: "Online Course",
+  },
 ];
 
 const PortfolioSection = () => {
@@ -38,17 +43,19 @@ const PortfolioSection = () => {
   const paginate = (pageNumber) => {
     setCurrentPage(pageNumber);
     // Auto scroll ke atas section saat ganti halaman
-    document.getElementById('portfolio').scrollIntoView({ behavior: 'smooth' });
+    document.getElementById("portfolio").scrollIntoView({ behavior: "smooth" });
   };
 
   return (
-    <section id="portfolio" className="py-20 lg:py-32 bg-white border-y border-slate-100">
+    <section
+      id="portfolio"
+      className="py-20 lg:py-32 bg-white border-y border-slate-100"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
         <Reveal>
-          <SectionTitle 
-            title="Portfolio Kami" 
-            subtitle="Karya Terbaik yang Telah Kami Buat" 
+          <SectionTitle
+            title="Portfolio Kami"
+            subtitle="Karya Terbaik yang Telah Kami Buat"
           />
         </Reveal>
 
@@ -56,15 +63,14 @@ const PortfolioSection = () => {
           {currentItems.map((project, idx) => (
             <Reveal key={idx} delay={idx * 100}>
               <div className="group relative bg-teal-50/40 rounded-2xl border border-teal-100 shadow-sm hover:shadow-xl hover:-translate-y-2 hover:border-teal-300 hover:bg-teal-50/80 transition-all duration-300 overflow-hidden flex flex-col h-full cursor-pointer">
-                
                 {/* Iframe Preview Container */}
                 <div className="relative w-full aspect-video bg-white border-b border-teal-100 overflow-hidden">
-                  <div 
-                    className="absolute top-0 left-0 w-[400%] h-[400%] origin-top-left pointer-events-none opacity-90 group-hover:opacity-100 transition-opacity duration-300" 
-                    style={{ transform: 'scale(0.25)' }}
+                  <div
+                    className="absolute top-0 left-0 w-[400%] h-[400%] origin-top-left pointer-events-none opacity-90 group-hover:opacity-100 transition-opacity duration-300"
+                    style={{ transform: "scale(0.25)" }}
                   >
-                    <iframe 
-                      src={project.url} 
+                    <iframe
+                      src={project.url}
                       className="w-full h-full border-0 bg-white"
                       scrolling="no"
                       tabIndex={-1}
@@ -78,11 +84,14 @@ const PortfolioSection = () => {
                   <h3 className="font-bold text-slate-800 text-lg sm:text-xl mb-2 sm:mb-3 group-hover:text-teal-600 transition-colors duration-300">
                     {project.title}
                   </h3>
+                  <Badge className="bg-teal-500 mb-2 text-white shadow-md border border-neutral-900/20">
+                    {project.type}
+                  </Badge>
                   <p className="text-slate-600 text-xs sm:text-sm leading-relaxed mb-6 flex-grow">
                     {project.desc}
                   </p>
 
-                  <a 
+                  <a
                     href={project.url}
                     target="_blank"
                     rel="noopener noreferrer"
@@ -92,7 +101,6 @@ const PortfolioSection = () => {
                     <ExternalLink className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-teal-500 group-hover/btn:text-white transition-colors relative z-10" />
                   </a>
                 </div>
-
               </div>
             </Reveal>
           ))}
@@ -109,15 +117,15 @@ const PortfolioSection = () => {
               >
                 <ChevronLeft className="w-5 h-5" />
               </button>
-              
+
               {[...Array(totalPages)].map((_, i) => (
                 <button
                   key={i}
                   onClick={() => paginate(i + 1)}
                   className={`w-10 h-10 rounded-xl font-bold text-sm transition-all ${
-                    currentPage === i + 1 
-                      ? 'bg-teal-500 text-white shadow-lg shadow-teal-200' 
-                      : 'bg-white text-slate-500 border border-teal-100 hover:bg-teal-50'
+                    currentPage === i + 1
+                      ? "bg-teal-500 text-white shadow-lg shadow-teal-200"
+                      : "bg-white text-slate-500 border border-teal-100 hover:bg-teal-50"
                   }`}
                 >
                   {i + 1}
@@ -134,7 +142,6 @@ const PortfolioSection = () => {
             </div>
           </Reveal>
         )}
-
       </div>
     </section>
   );
