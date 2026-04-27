@@ -29,6 +29,24 @@ const PORTFOLIO_DATA = [
     desc: "Website company profile course mandarin modern dengan desain clean dan profesional.",
     type: "Online Course",
   },
+  {
+    title: "English Course Profile",
+    url: "https://english-course-compro.vercel.app/",
+    desc: "Website company profile kursus bahasa Inggris modern dengan desain clean dan profesional.",
+    type: "English Course",
+  },
+  {
+    title: "Southern English Course",
+    url: "https://southernenglishcourse.vercel.app/",
+    desc: "Website company profile Southern English Course dengan desain interaktif dan responsif.",
+    type: "English Course",
+  },
+  {
+    title: "SEC Company Profile",
+    url: "https://compro-sec.vercel.app/",
+    desc: "Website landing page untuk SEC dengan layout yang informatif dan elegan.",
+    type: "Company Profile",
+  },
 ];
 
 const PortfolioSection = () => {
