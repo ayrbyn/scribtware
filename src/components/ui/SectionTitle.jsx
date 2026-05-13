@@ -1,10 +1,17 @@
 import React from 'react';
 
-const SectionTitle = ({ title, subtitle, align = 'center' }) => (
-  <div className={`mb-16 ${align === 'center' ? 'text-center' : 'text-left'}`}>
-    {subtitle && <span className="text-teal-500 font-semibold tracking-wider uppercase text-sm mb-3 block">{subtitle}</span>}
-    <h2 className="text-3xl md:text-4xl font-extrabold text-slate-800 tracking-tight">{title}</h2>
-    <div className={`h-1.5 w-12 bg-teal-500 rounded-full mt-4 ${align === 'center' ? 'mx-auto' : ''}`}></div>
+const SectionTitle = ({ title, subtitle, align = 'left' }) => (
+  <div className={`mb-[var(--spacing-64)] ${align === 'center' ? 'text-center' : 'text-left'}`}>
+    {subtitle && (
+      <span
+        className="font-[var(--font-mono)] text-[12px] leading-[1.6] tracking-[-0.36px] text-fog-gray uppercase block mb-[var(--spacing-16)]"
+      >
+        {subtitle}
+      </span>
+    )}
+    <h2 className="font-[var(--font-display)] text-[48px] md:text-[64px] leading-[0.9] tracking-[-1.44px] text-midnight-ink uppercase">
+      {title}
+    </h2>
   </div>
 );
 

@@ -1,22 +1,17 @@
 import { images } from "../../assets/images";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Mail } from "lucide-react";
+import Reveal from "../ui/Reveal";
+import useParallax from "../../hooks/useParallax";
 
 const Team = () => {
-  const [isVisible, setIsVisible] = useState(false);
+  const [decoRef, decoStyle] = useParallax(-0.15);
 
-  useEffect(() => {
-    // Memicu animasi masuk setelah komponen dimuat
-    const timer = setTimeout(() => setIsVisible(true), 100);
-    return () => clearTimeout(timer);
-  }, []);
-
-  // Menggunakan struktur data sesuai permintaan Anda
   const teamMembers = [
     {
       img: images.abyan,
       name: "Abyan",
-      role: "Bussiness Operations",
+      role: "Business Operations",
       social: {
         ig: "https://www.instagram.com/_abyan77/",
         email: "abyan.dzakky77@gmail.com",
@@ -61,86 +56,79 @@ const Team = () => {
   ];
 
   return (
-    <section className="bg-white py-20 px-4 sm:px-6 lg:px-8 text-center font-sans overflow-hidden">
-      {/* Header Section dengan Animasi Fade-in Down */}
-      <div
-        className={`max-w-4xl mx-auto mb-20 transition-opacity transition-transform duration-700 transform ${
-          isVisible ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-10"
-        }`}
-      >
-        <p className="text-teal-600 font-bold text-sm uppercase tracking-[0.2em] mb-3">
-          Tim Kami
-        </p>
-        <h2 className="text-4xl md:text-6xl font-extrabold text-gray-900 mb-4 tracking-tight text-balance">
-          Tim di Balik Software Anda
-        </h2>
-        <div className="w-16 h-1 bg-teal-500 mx-auto mb-8 rounded-full"></div>
-        <p className="text-gray-500 max-w-2xl mx-auto leading-relaxed text-lg">
-          Tim engineer dan designer yang fokus membangun software scalable,
-          aman, dan siap mendukung pertumbuhan bisnis Anda.
-        </p>
-      </div>
+    <section id="team" className="py-[var(--spacing-96)] bg-canvas-ice relative overflow-hidden">
+      {/* Parallax decorative */}
+      <div ref={decoRef} style={decoStyle} className="absolute right-[-5%] top-1/3 w-[350px] h-[350px] rounded-full bg-brand/[0.04] pointer-events-none hidden lg:block" />
 
-      {/* Team Container - Flex Wrap dengan Justify Center */}
-      {/* Ini memastikan jika ada item ganjil (seperti Adjie), dia akan berada di tengah pada baris baru di mobile */}
-      <div className="max-w-7xl mx-auto flex flex-wrap justify-center gap-x-8 gap-y-16 sm:gap-x-12 lg:gap-x-6">
-        {teamMembers.map((member, idx) => (
-          <div
-            key={idx}
-            className={`flex flex-col items-center w-[140px] sm:w-[180px] md:w-[200px] lg:flex-1 lg:min-w-[180px] transition-[opacity,transform] duration-500 transform ${
-              isVisible
-                ? "opacity-100 translate-y-0"
-                : "opacity-0 translate-y-20"
-            }`}
-            style={{ transitionDelay: `${idx * 150}ms` }}
-          >
-            {/* Image Container dengan Efek Hover Teal */}
-            <div className="relative w-28 h-28 sm:w-32 sm:h-32 md:w-40 md:h-40 mb-6 rounded-full overflow-hidden border-2 border-transparent group transition-shadow duration-300 hover:shadow-xl hover:shadow-teal-500/20">
-              <img
-                src={member.img}
-                alt={member.name}
-                className="w-full h-full object-cover md:grayscale group-hover:grayscale-0 transition-[transform,filter] duration-500 ease-in-out group-hover:scale-105"
-                onError={(e) => {
-                  e.target.src = `https://ui-avatars.com/api/?name=${member.name}&background=0D9488&color=fff&rounded=true`;
-                }}
-              />
-              <div className="absolute inset-0 bg-teal-600/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+      <div className="max-w-7xl mx-auto px-[var(--spacing-24)] sm:px-[var(--spacing-40)] lg:px-[var(--spacing-64)] relative z-10">
+
+        {/* Header */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-[var(--spacing-40)] mb-[var(--spacing-80)]">
+          <Reveal animation="fadeLeft" duration={800}>
+            <div>
+              <span className="font-[var(--font-mono)] text-[12px] leading-[1.6] tracking-[-0.36px] text-brand uppercase block mb-[var(--spacing-16)]">
+                Tim Kami
+              </span>
+              <h2 className="font-[var(--font-display)] text-[48px] md:text-[64px] leading-[0.9] tracking-[-1.44px] text-midnight-ink uppercase">
+                TIM DI BALIK
+                <br />
+                SOFTWARE ANDA
+              </h2>
             </div>
-
-            {/* Nama & Role */}
-            <div className="space-y-1">
-              <h4 className="text-gray-900 font-extrabold text-lg md:text-2xl leading-tight">
-                {member.name}
-              </h4>
-              <p className="text-teal-600 text-[9px] md:text-xs font-bold uppercase tracking-[0.15em]">
-                {member.role}
+          </Reveal>
+          <Reveal animation="fadeRight" delay={150} duration={800}>
+            <div className="flex flex-col justify-end h-full">
+              <p className="text-ash-gray text-[16px] leading-[1.25] tracking-[-0.42px] max-w-md">
+                Tim engineer dan designer yang fokus membangun software scalable,
+                aman, dan siap mendukung pertumbuhan bisnis Anda.
               </p>
             </div>
+          </Reveal>
+        </div>
 
-            {/* Ikon Sosial Media */}
-            <div className="flex items-center gap-4 mt-4">
-              <a
-                href={member.social.ig}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-400 hover:text-teal-600 transition-colors duration-300 transform hover:scale-110"
-                aria-label={`${member.name} Instagram`}
-              >
-                {/* <Instagram size={18} /> */}
-              </a>
-              <a
-                href={`mailto:${member.social.email}`}
-                className="text-gray-400 hover:text-teal-600 transition-colors duration-300 transform hover:scale-110"
-                aria-label={`${member.name} Email`}
-              >
-                <Mail size={18} />
-              </a>
-            </div>
+        {/* Team grid */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-[var(--spacing-24)]">
+          {teamMembers.map((member, idx) => (
+            <Reveal key={idx} animation="scaleIn" delay={idx * 100} duration={700}>
+              <div className="group flex flex-col items-center text-center">
 
-            {/* Divider Halus (Hanya Mobile) */}
-            <div className="w-8 h-[1px] bg-gray-100 mt-6 lg:hidden"></div>
-          </div>
-        ))}
+                {/* Photo */}
+                <div className="relative w-full aspect-square mb-[var(--spacing-16)] rounded-[var(--radius-3xl)] overflow-hidden bg-faint-mist group-hover:shadow-xl group-hover:shadow-brand/15 transition-shadow duration-500">
+                  <img
+                    src={member.img}
+                    alt={member.name}
+                    className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700 ease-out"
+                    onError={(e) => {
+                      e.target.src = `https://ui-avatars.com/api/?name=${member.name}&background=259194&color=ffffff&rounded=false`;
+                    }}
+                  />
+                  {/* Brand overlay on hover */}
+                  <div className="absolute inset-0 bg-brand/0 group-hover:bg-brand/5 transition-colors duration-500" />
+                </div>
+
+                {/* Name & Role */}
+                <h4 className="text-midnight-ink font-medium text-[18px] leading-[1.2] tracking-[-0.72px] mb-1">
+                  {member.name}
+                </h4>
+                <p className="font-[var(--font-mono)] text-[12px] leading-[1.6] tracking-[-0.36px] text-brand uppercase">
+                  {member.role}
+                </p>
+
+                {/* Contact */}
+                <div className="flex items-center gap-3 mt-[var(--spacing-16)]">
+                  <a
+                    href={`mailto:${member.social.email}`}
+                    className="text-fog-gray hover:text-brand transition-colors duration-200"
+                    aria-label={`${member.name} Email`}
+                  >
+                    <Mail size={16} />
+                  </a>
+                </div>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+
       </div>
     </section>
   );

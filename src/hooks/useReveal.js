@@ -1,9 +1,9 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, useCallback } from 'react';
 
 /**
+ * Enhanced reveal hook with multiple animation directions.
  * Returns [ref, isVisible].
  * Once visible, stays visible (no re-trigger on scroll back).
- * Resets only on page refresh (because component remounts).
  */
 const useReveal = (threshold = 0.15) => {
   const ref = useRef(null);
@@ -17,7 +17,7 @@ const useReveal = (threshold = 0.15) => {
       ([entry]) => {
         if (entry.isIntersecting) {
           setVisible(true);
-          observer.disconnect(); // fire once only
+          observer.disconnect();
         }
       },
       { threshold }

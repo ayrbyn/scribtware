@@ -14,22 +14,30 @@ const Header = () => {
   }, []);
 
   return (
-    // Outer wrapper: fixed full-width, tidak punya margin sendiri
     <div className="fixed top-0 left-0 right-0 z-50">
 
-      {/* Floating navbar pill */}
-      <header className={`transition-[background,padding,border-radius,box-shadow,margin] duration-300 ${
-        isScrolled
-          ? 'bg-white/95 md:bg-white/90 md:backdrop-blur-md shadow-md border border-slate-100 py-3 mt-3 mx-3 sm:mx-6 lg:mx-10 rounded-2xl'
-          : 'bg-transparent py-5'
-      }`}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Sticky top bar with fade-in animation */}
+      <header
+        className={`transition-all duration-500 ${
+          isScrolled
+            ? 'bg-paper-white/95 backdrop-blur-md border-b border-canvas-ice py-3'
+            : 'bg-transparent py-5'
+        }`}
+        style={{
+          animation: 'fadeInDown 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+        }}
+      >
+        <div className="max-w-7xl mx-auto px-[var(--spacing-24)] sm:px-[var(--spacing-40)] lg:px-[var(--spacing-64)]">
           <div className="flex items-center justify-between">
             <Logo />
             <div className="flex items-center gap-6 lg:gap-10">
-              <nav className="hidden md:flex items-center gap-8">
+              <nav className="hidden md:flex items-center gap-0">
                 {NAV_LINKS.map((link) => (
-                  <a key={link.label} href={link.href} className="text-slate-600 hover:text-teal-500 font-medium text-sm transition-colors">
+                  <a
+                    key={link.label}
+                    href={link.href}
+                    className="text-ash-gray hover:text-brand font-normal text-[14px] tracking-[-0.42px] leading-[1.3] px-[16px] py-2 transition-colors duration-200"
+                  >
                     {link.label}
                   </a>
                 ))}
@@ -41,17 +49,17 @@ const Header = () => {
               </div>
               {/* Animated burger button */}
               <button
-                className="md:hidden text-slate-600 p-1 flex flex-col justify-center items-center w-8 h-8 gap-1.5"
+                className="md:hidden text-midnight-ink p-1 flex flex-col justify-center items-center w-8 h-8 gap-1.5"
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                 aria-label="Toggle menu"
               >
-                <span className={`block h-0.5 w-5 bg-slate-700 rounded-full origin-center transition-all duration-300 ${
+                <span className={`block h-0.5 w-5 bg-midnight-ink rounded-full origin-center transition-all duration-300 ${
                   mobileMenuOpen ? 'rotate-45 translate-y-2' : ''
                 }`} />
-                <span className={`block h-0.5 w-5 bg-slate-700 rounded-full transition-all duration-300 ${
+                <span className={`block h-0.5 w-5 bg-midnight-ink rounded-full transition-all duration-300 ${
                   mobileMenuOpen ? 'opacity-0 scale-x-0' : ''
                 }`} />
-                <span className={`block h-0.5 w-5 bg-slate-700 rounded-full origin-center transition-all duration-300 ${
+                <span className={`block h-0.5 w-5 bg-midnight-ink rounded-full origin-center transition-all duration-300 ${
                   mobileMenuOpen ? '-rotate-45 -translate-y-2' : ''
                 }`} />
               </button>
@@ -60,9 +68,9 @@ const Header = () => {
         </div>
       </header>
 
-      {/* Mobile menu — sibling dari header, tidak terpotong margin floating pill */}
+      {/* Mobile menu */}
       <div
-        className={`md:hidden mx-3 sm:mx-6 mt-1 bg-white border border-slate-100 shadow-xl rounded-2xl px-4 flex flex-col gap-1 overflow-hidden transition-all duration-300 ease-in-out ${
+        className={`md:hidden mx-4 mt-1 bg-paper-white border border-canvas-ice rounded-[var(--radius-navigationitems)] px-4 flex flex-col gap-1 overflow-hidden transition-all duration-300 ease-in-out ${
           mobileMenuOpen ? 'py-4 opacity-100 max-h-96' : 'max-h-0 opacity-0 py-0 pointer-events-none'
         }`}
       >
@@ -70,7 +78,7 @@ const Header = () => {
             <a
               key={link.label}
               href={link.href}
-              className="text-slate-700 font-medium text-sm py-3 px-2 rounded-lg hover:bg-slate-50 hover:text-teal-500 transition-colors border-b border-slate-50 last:border-0"
+              className="text-ash-gray font-normal text-[14px] tracking-[-0.42px] py-3 px-2 rounded-[var(--radius-lg)] hover:bg-brand-light hover:text-brand transition-colors border-b border-canvas-ice last:border-0"
               onClick={() => setMobileMenuOpen(false)}
             >
               {link.label}
