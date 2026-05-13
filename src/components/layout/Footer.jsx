@@ -1,24 +1,21 @@
 import React from "react";
-import { Mail, MessageCircle } from "lucide-react";
+import { Mail, MessageCircle, ArrowUpRight } from "lucide-react";
 import Logo from "../ui/Logo";
+import Reveal from "../ui/Reveal";
+import useParallax from "../../hooks/useParallax";
 
 const Footer = () => {
-  // Daftar link utama beserta anchor ke komponen masing-masing
+  const [decoRef, decoStyle] = useParallax(0.2);
+
   const links = [
-    { label: "Home", href: "#hero" }, // Mengarah ke Hero.jsx
-    { label: "Layanan", href: "#services" }, // Mengarah ke Services.jsx
-    { label: "Proses", href: "#process" }, // Mengarah ke Process.jsx
-    { label: "Hubungi Kami", href: "https://wa.me/6282379097272" },
+    { label: "Home", href: "#hero" },
+    { label: "Tentang", href: "#about" },
+    { label: "Layanan", href: "#services" },
+    { label: "Portfolio", href: "#portfolio" },
+    { label: "Proses", href: "#process" },
   ];
 
-  // Daftar sosial media
   const socialLinks = [
-    // {
-    //   icon: Linkedin,
-    //   href: "https://linkedin.com/company/scribtware",
-    //   label: "LinkedIn",
-    // },
-    // { icon: Instagram, href: '#', label: 'Instagram' },
     {
       icon: MessageCircle,
       href: "https://wa.me/6282379097272",
@@ -28,88 +25,111 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="relative bg-teal-500 w-full overflow-hidden pt-12 pb-6">
-      {/* Efek dekorasi lingkaran (Shape) di sebelah kanan latar belakang (Diperkecil) */}
-      <div className="absolute right-0 top-0 w-full md:w-1/2 h-full pointer-events-none overflow-hidden flex justify-end z-0">
-        <div className="hidden md:block absolute -right-16 top-[-20%] w-[28rem] h-[28rem] bg-teal-600/30 rounded-full blur-2xl"></div>
-        <div className="hidden md:block absolute right-8 top-[15%] w-[18rem] h-[18rem] bg-teal-600/40 rounded-full"></div>
-        <div className="hidden md:block absolute right-[-5%] bottom-[-20%] w-[16rem] h-[16rem] bg-teal-700/30 rounded-full"></div>
-      </div>
+    <footer className="bg-midnight-ink w-full pt-[var(--spacing-80)] pb-[var(--spacing-40)] relative overflow-hidden">
+      {/* Parallax decorative */}
+      <div ref={decoRef} style={decoStyle} className="absolute -right-16 top-1/4 w-[400px] h-[400px] rounded-full bg-brand/[0.06] pointer-events-none hidden lg:block" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-16 mb-10">
-          {/* Kolom Kiri: Logo, Deskripsi, dan Sosial Media */}
-          <div className="flex flex-col space-y-4">
-            <Logo />
-            <p className="text-teal-50 text-xs sm:text-sm leading-relaxed max-w-sm">
-              Kami bantu bisnis di Indonesia membangun software yang benar-benar
-              bekerja untuk mereka. Bukan sekadar ada, tapi benar-benar
-              berdampak.
-            </p>
+      <div className="max-w-7xl mx-auto px-[var(--spacing-24)] sm:px-[var(--spacing-40)] lg:px-[var(--spacing-64)] relative z-10">
 
-            {/* Kumpulan Tombol Sosial Media */}
-            <div className="pt-2 flex flex-wrap gap-3">
+        {/* Big footer headline */}
+        <Reveal animation="slideUp" duration={900}>
+          <div className="mb-[var(--spacing-80)]">
+            <h2 className="font-[var(--font-display)] text-[48px] md:text-[80px] lg:text-[100px] leading-[0.9] tracking-[-2.4px] text-paper-white uppercase">
+              MARI BANGUN
+              <br />
+              SESUATU YANG
+              <br />
+              <span className="text-brand">BERDAMPAK.</span>
+            </h2>
+            <div className="mt-[var(--spacing-40)]">
+              <a
+                href="https://wa.me/6282379097272"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group inline-flex items-center gap-2 bg-brand text-paper-white px-[var(--spacing-24)] py-3 rounded-[var(--radius-buttons)] font-medium text-[14px] tracking-[-0.42px] hover:bg-brand-dark shadow-md shadow-brand/20 transition-all duration-300"
+              >
+                Mulai Percakapan
+                <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200" />
+              </a>
+            </div>
+          </div>
+        </Reveal>
+
+        {/* Footer grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-[var(--spacing-40)] mb-[var(--spacing-64)]">
+
+          {/* Column 1: Brand */}
+          <Reveal animation="fadeUp" delay={100} duration={700}>
+            <div className="flex flex-col gap-[var(--spacing-16)]">
+              <Logo light />
+              <p className="text-fog-gray text-[14px] leading-[1.3] tracking-[-0.42px] max-w-[280px]">
+                Kami bantu bisnis di Indonesia membangun software yang benar-benar
+                bekerja untuk mereka.
+              </p>
+            </div>
+          </Reveal>
+
+          {/* Column 2: Navigation */}
+          <Reveal animation="fadeUp" delay={200} duration={700}>
+            <div className="flex flex-col gap-[var(--spacing-8)]">
+              <span className="font-[var(--font-mono)] text-[12px] leading-[1.6] tracking-[-0.36px] text-fog-gray uppercase mb-[var(--spacing-8)]">
+                Navigasi
+              </span>
+              {links.map((link, i) => (
+                <a
+                  key={i}
+                  href={link.href}
+                  className="text-paper-white text-[14px] font-normal tracking-[-0.42px] hover:text-brand transition-colors duration-200 py-1"
+                >
+                  {link.label}
+                </a>
+              ))}
+            </div>
+          </Reveal>
+
+          {/* Column 3: Contact */}
+          <Reveal animation="fadeUp" delay={300} duration={700}>
+            <div className="flex flex-col gap-[var(--spacing-8)]">
+              <span className="font-[var(--font-mono)] text-[12px] leading-[1.6] tracking-[-0.36px] text-fog-gray uppercase mb-[var(--spacing-8)]">
+                Kontak
+              </span>
               {socialLinks.map((social, idx) => {
                 const Icon = social.icon;
                 return (
                   <a
                     key={idx}
                     href={social.href}
-                    className="inline-flex w-8 h-8 sm:w-10 sm:h-10 rounded-full border border-teal-300 items-center justify-center text-teal-50 hover:bg-white hover:text-teal-600 transition-all duration-300 shadow-sm"
+                    target={social.href.startsWith("http") ? "_blank" : undefined}
+                    rel={social.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                    className="inline-flex items-center gap-3 text-paper-white text-[14px] font-normal tracking-[-0.42px] hover:text-brand transition-colors duration-200 py-1"
                     aria-label={social.label}
-                    title={social.label}
                   >
-                    <Icon className="w-4 h-4" />
+                    <Icon className="w-4 h-4 text-brand" />
+                    {social.label}
                   </a>
                 );
               })}
             </div>
-          </div>
+          </Reveal>
+        </div>
 
-          {/* Kolom Kanan: Menu Navigasi Besar (Font dan jarak diperkecil) */}
-          <div className="flex flex-col md:items-start lg:items-center justify-center space-y-4 md:pl-8 lg:pl-0">
-            <div className="flex flex-col space-y-3">
-              {links.map((link, i) => (
-                <a
-                  key={i}
-                  href={link.href}
-                  {...(link.href.startsWith("http")
-                    ? { target: "_blank", rel: "noopener noreferrer" }
-                    : {})}
-                  className="text-white text-lg md:text-xl font-medium hover:text-white transition-colors flex items-center group"
-                >
-                  {/* Titik indikator */}
-                  <span
-                    className={`w-1.5 h-1.5 rounded-full mr-3 transition-all duration-300 ${i === 0 ? "bg-white" : "bg-transparent group-hover:bg-teal-200"}`}
-                  ></span>
-                  {link.label}
-                </a>
-              ))}
+        {/* Bottom bar */}
+        <Reveal animation="fadeUp" delay={400} duration={600}>
+          <div className="flex flex-col md:flex-row justify-between items-center border-t border-deep-smoke pt-[var(--spacing-24)]">
+            <p className="text-fog-gray text-[12px] font-[var(--font-mono)] tracking-[-0.36px] mb-3 md:mb-0">
+              © {new Date().getFullYear()} Scribtware. All Rights Reserved.
+            </p>
+            <div className="flex gap-[var(--spacing-24)]">
+              <a href="#" className="text-fog-gray hover:text-brand text-[12px] font-[var(--font-mono)] tracking-[-0.36px] transition-colors">
+                Privacy Policy
+              </a>
+              <a href="#" className="text-fog-gray hover:text-brand text-[12px] font-[var(--font-mono)] tracking-[-0.36px] transition-colors">
+                Terms & Conditions
+              </a>
             </div>
           </div>
-        </div>
+        </Reveal>
 
-        {/* Garis Pemisah (Divider) dan Bagian Bawah Footer */}
-        <div className="flex flex-col md:flex-row justify-between items-center border-t border-teal-400/60 pt-6 mt-6">
-          <p className="text-teal-100 text-xs sm:text-sm mb-3 md:mb-0">
-            Copyright {new Date().getFullYear()} © Scribtware. All Rights
-            Reserved
-          </p>
-          <div className="flex gap-4 sm:gap-6">
-            <a
-              href="#"
-              className="text-teal-100 hover:text-white text-xs sm:text-sm transition-colors"
-            >
-              Privacy Policy
-            </a>
-            <a
-              href="#"
-              className="text-teal-100 hover:text-white text-xs sm:text-sm transition-colors"
-            >
-              Terms & Conditions
-            </a>
-          </div>
-        </div>
       </div>
     </footer>
   );

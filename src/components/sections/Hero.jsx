@@ -1,7 +1,7 @@
 import React from 'react';
 import { ArrowRight, Code2, Layers, CheckCircle2 } from 'lucide-react';
-import Button from '../ui/Button';
 import Reveal from '../ui/Reveal';
+import useParallax from '../../hooks/useParallax';
 
 const VALUE_PROPS = [
   { icon: Code2,        text: 'Website, Aplikasi & Software Custom' },
@@ -9,95 +9,111 @@ const VALUE_PROPS = [
   { icon: CheckCircle2, text: 'Konsultasi awal gratis, tanpa komitmen' },
 ];
 
-const Hero = () => (
-  <section
-    id="hero"
-    className="relative min-h-screen flex items-center justify-center bg-slate-50 overflow-hidden pt-24 pb-16"
-  >
+const Hero = () => {
+  const [parallaxRef, parallaxStyle] = useParallax(0.15);
+  const [floatRef1, floatStyle1] = useParallax(-0.25);
+  const [floatRef2, floatStyle2] = useParallax(0.35);
 
-    {/* ── Abstract backdrop ── */}
-    <div
-      className="absolute inset-0 pointer-events-none select-none"
-      style={{ willChange: 'transform', transform: 'translateZ(0)' }}
+  return (
+    <section
+      id="hero"
+      className="relative min-h-screen flex items-end bg-canvas-ice overflow-hidden pt-32 pb-[var(--spacing-80)]"
     >
-      {/* Large soft blobs — hidden on mobile (too expensive for GPU) */}
-      <div className="hidden lg:block absolute top-[-20%] left-[-10%] w-[600px] h-[600px] rounded-full bg-teal-100/50 blur-[80px]" />
-      <div className="hidden lg:block absolute bottom-[-20%] right-[-10%] w-[500px] h-[500px] rounded-full bg-slate-200/60 blur-[80px]" />
-
-      {/* Mobile-only: simple lightweight gradient instead of blur */}
-      <div className="lg:hidden absolute top-0 left-0 right-0 h-64 bg-gradient-to-b from-teal-50/60 to-transparent" />
-
-      {/* Dot grid — desktop only */}
-      <svg className="hidden lg:block absolute inset-0 w-full h-full opacity-[0.3]" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <pattern id="dots" x="0" y="0" width="24" height="24" patternUnits="userSpaceOnUse">
-            <circle cx="1" cy="1" r="1" fill="#94a3b8" />
-          </pattern>
-        </defs>
-        <rect width="100%" height="100%" fill="url(#dots)" />
-      </svg>
-
-      {/* Decorative rings — desktop only */}
-      <div className="hidden lg:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full border border-teal-200/30" />
-      <div className="hidden lg:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full border border-teal-200/20" />
-
-      {/* Floating accent dots — desktop only */}
-      <div className="hidden lg:block absolute top-24 right-24 w-3 h-3 rounded-full bg-teal-400/60" />
-      <div className="hidden lg:block absolute top-32 right-40 w-1.5 h-1.5 rounded-full bg-teal-300/60" />
-      <div className="hidden lg:block absolute bottom-32 left-24 w-2.5 h-2.5 rounded-full bg-teal-400/50" />
-      <div className="hidden lg:block absolute bottom-24 left-40 w-1.5 h-1.5 rounded-full bg-teal-300/50" />
-    </div>
-
-    {/* ── Content ── */}
-    <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center text-center gap-6">
-
-      {/* Headline */}
-      <Reveal delay={100} y={24}>
-        <h1 className="text-4xl sm:text-5xl md:text-6xl xl:text-7xl font-extrabold text-slate-800 leading-[1.1] tracking-tight">
-          Bisnis Lebih Maju,
-          <br />
-          <span className="text-teal-500">Dimulai dari Scribtware.</span>
-        </h1>
-      </Reveal>
-
-      {/* Sub-headline */}
-      <Reveal delay={200} y={20}>
-        <p className="text-slate-500 text-sm md:text-base lg:text-lg leading-relaxed max-w-xl">
-          Kami merancang dan membangun software yang membantu bisnis Anda bergerak lebih efisien, melayani lebih baik, dan tumbuh lebih cepat.
-        </p>
-      </Reveal>
-
-      {/* Value props */}
-      <Reveal delay={300} y={16}>
-        <ul className="flex flex-col sm:flex-row flex-wrap justify-center gap-y-2 gap-x-6 text-sm text-slate-600">
-          {VALUE_PROPS.map(({ icon: Icon, text }) => (
-            <li key={text} className="flex items-center gap-2 font-medium">
-              <Icon className="w-4 h-4 text-teal-500 shrink-0" />
-              {text}
-            </li>
-          ))}
-        </ul>
-      </Reveal>
-
-      {/* CTAs */}
-      <Reveal delay={400} y={16}>
-        <div className="flex flex-col sm:flex-row gap-3 pt-2 w-full sm:w-auto">
-          <a href="https://wa.me/6282379097272" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
-            <Button className="group px-8 py-3.5 text-base w-full">
-              Mulai Proyek
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1.5 transition-transform duration-200" />
-            </Button>
-          </a>
-          <a href="#services" className="w-full sm:w-auto">
-            <Button variant="secondary" className="px-8 py-3.5 text-base w-full">
-              Lihat Layanan
-            </Button>
-          </a>
+      {/* ── Parallax decorative elements ── */}
+      <div className="absolute inset-0 pointer-events-none select-none overflow-hidden">
+        {/* Large brand circle — parallax */}
+        <div ref={parallaxRef} style={parallaxStyle}>
+          <div className="absolute -top-20 -right-32 w-[500px] h-[500px] rounded-full bg-brand/[0.06] hidden lg:block" />
         </div>
-      </Reveal>
 
-    </div>
-  </section>
-);
+        {/* Floating accent shapes */}
+        <div ref={floatRef1} style={floatStyle1}>
+          <div className="absolute top-[30%] right-[15%] w-3 h-3 rounded-full bg-brand/40 hidden lg:block" style={{ animation: 'float 4s ease-in-out infinite' }} />
+          <div className="absolute top-[25%] right-[20%] w-1.5 h-1.5 rounded-full bg-brand/25 hidden lg:block" style={{ animation: 'float 5s ease-in-out infinite 0.5s' }} />
+        </div>
+
+        <div ref={floatRef2} style={floatStyle2}>
+          <div className="absolute bottom-[25%] left-[8%] w-4 h-4 rounded-[var(--radius-md)] bg-brand/10 rotate-45 hidden lg:block" style={{ animation: 'float 6s ease-in-out infinite 1s' }} />
+          <div className="absolute bottom-[35%] left-[5%] w-2 h-2 rounded-full bg-brand/20 hidden lg:block" style={{ animation: 'float 4.5s ease-in-out infinite 0.3s' }} />
+        </div>
+
+        {/* Subtle grid pattern */}
+        <svg className="absolute inset-0 w-full h-full opacity-[0.03] hidden lg:block" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <pattern id="grid" x="0" y="0" width="48" height="48" patternUnits="userSpaceOnUse">
+              <path d="M 48 0 L 0 0 0 48" fill="none" stroke="#259194" strokeWidth="0.5" />
+            </pattern>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#grid)" />
+        </svg>
+      </div>
+
+      {/* ── Content ── */}
+      <div className="relative z-10 max-w-7xl mx-auto px-[var(--spacing-24)] sm:px-[var(--spacing-40)] lg:px-[var(--spacing-64)] w-full">
+
+        {/* Caption label */}
+        <Reveal animation="fadeLeft" delay={0} duration={600}>
+          <span className="font-[var(--font-mono)] text-[12px] leading-[1.6] tracking-[-0.36px] text-brand uppercase block mb-[var(--spacing-24)]">
+            Software Development Agency
+          </span>
+        </Reveal>
+
+        {/* Hero Headline */}
+        <Reveal animation="slideUp" delay={150} duration={900}>
+          <h1 className="font-[var(--font-display)] text-[64px] sm:text-[80px] md:text-[100px] lg:text-[130px] leading-[0.9] tracking-[-3.9px] text-midnight-ink uppercase max-w-5xl">
+            BISNIS LEBIH MAJU,
+            <br />
+            DIMULAI DARI
+            <br />
+            <span className="relative inline-block">
+              SCRIBTWARE
+              <span className="absolute -bottom-1 left-0 w-full h-[6px] bg-brand rounded-sm" />
+            </span>
+          </h1>
+        </Reveal>
+
+        {/* Sub-headline + Value Props */}
+        <div className="mt-[var(--spacing-64)] grid grid-cols-1 lg:grid-cols-2 gap-[var(--spacing-40)]">
+          <Reveal animation="fadeUp" delay={300} duration={700}>
+            <p className="text-ash-gray text-[16px] md:text-[18px] leading-[1.25] tracking-[-0.42px] max-w-lg">
+              Kami merancang dan membangun software yang membantu bisnis Anda bergerak lebih efisien, melayani lebih baik, dan tumbuh lebih cepat.
+            </p>
+          </Reveal>
+
+          <Reveal animation="fadeRight" delay={400} duration={700}>
+            <ul className="flex flex-col gap-3">
+              {VALUE_PROPS.map(({ icon: Icon, text }, i) => (
+                <li key={text} className="flex items-center gap-3 text-[14px] text-midnight-ink tracking-[-0.42px] font-normal">
+                  <div className="w-8 h-8 rounded-[var(--radius-lg)] bg-brand flex items-center justify-center shrink-0">
+                    <Icon className="w-4 h-4 text-paper-white" />
+                  </div>
+                  {text}
+                </li>
+              ))}
+            </ul>
+          </Reveal>
+        </div>
+
+        {/* CTAs */}
+        <Reveal animation="fadeUp" delay={500} duration={600}>
+          <div className="flex flex-col sm:flex-row gap-3 mt-[var(--spacing-40)]">
+            <a href="https://wa.me/6282379097272" target="_blank" rel="noopener noreferrer">
+              <button className="group flex items-center gap-2 bg-brand text-paper-white px-[var(--spacing-24)] py-3.5 rounded-[var(--radius-buttons)] text-[14px] font-medium tracking-[-0.42px] hover:bg-brand-dark shadow-md shadow-brand/20 hover:shadow-lg hover:shadow-brand/30 transition-all duration-300 cursor-pointer">
+                Mulai Proyek
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" />
+              </button>
+            </a>
+            <a href="#services">
+              <button className="flex items-center gap-2 bg-transparent text-ash-gray px-[var(--spacing-24)] py-3.5 rounded-[var(--radius-buttons)] text-[14px] font-normal tracking-[-0.42px] hover:text-brand transition-colors duration-200 cursor-pointer">
+                Lihat Layanan
+              </button>
+            </a>
+          </div>
+        </Reveal>
+
+      </div>
+    </section>
+  );
+};
 
 export default Hero;

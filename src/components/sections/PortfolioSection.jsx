@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import SectionTitle from "../ui/SectionTitle";
 import Reveal from "../ui/Reveal";
 import { ExternalLink, ChevronLeft, ChevronRight } from "lucide-react";
-import { Badge } from "../ui/badge";
 
 const PORTFOLIO_DATA = [
   {
@@ -51,7 +50,7 @@ const PORTFOLIO_DATA = [
 
 const PortfolioSection = () => {
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 3; // Ubah ke 2 jika ingin melihat paginasi berjalan sekarang
+  const itemsPerPage = 3;
 
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
@@ -60,29 +59,28 @@ const PortfolioSection = () => {
 
   const paginate = (pageNumber) => {
     setCurrentPage(pageNumber);
-    // Auto scroll ke atas section saat ganti halaman
     document.getElementById("portfolio").scrollIntoView({ behavior: "smooth" });
   };
 
   return (
     <section
       id="portfolio"
-      className="py-20 lg:py-32 bg-white border-y border-slate-100"
+      className="py-[var(--spacing-96)] bg-canvas-ice"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <Reveal>
+      <div className="max-w-7xl mx-auto px-[var(--spacing-24)] sm:px-[var(--spacing-40)] lg:px-[var(--spacing-64)]">
+        <Reveal animation="fadeLeft" duration={800}>
           <SectionTitle
-            title="Portfolio Kami"
-            subtitle="Karya Terbaik yang Telah Kami Buat"
+            title="Karya Terbaik Kami"
+            subtitle="Portfolio"
           />
         </Reveal>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-8 mt-10 lg:mt-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[var(--spacing-24)]">
           {currentItems.map((project, idx) => (
-            <Reveal key={idx} delay={idx * 100}>
-              <div className="group relative bg-teal-50/40 rounded-2xl border border-teal-100 shadow-sm hover:shadow-xl hover:-translate-y-2 hover:border-teal-300 hover:bg-teal-50/80 transition-all duration-300 overflow-hidden flex flex-col h-full cursor-pointer">
-                {/* Iframe Preview Container */}
-                <div className="relative w-full aspect-video bg-white border-b border-teal-100 overflow-hidden">
+            <Reveal key={`${currentPage}-${idx}`} animation="slideUp" delay={idx * 120} duration={800}>
+              <div className="group bg-paper-white rounded-[var(--radius-cards)] overflow-hidden flex flex-col h-full hover:-translate-y-2 transition-all duration-500 hover:shadow-xl hover:shadow-brand/10">
+                {/* Iframe Preview */}
+                <div className="relative w-full aspect-video bg-faint-mist overflow-hidden">
                   <div
                     className="absolute top-0 left-0 w-[400%] h-[400%] origin-top-left pointer-events-none opacity-90 group-hover:opacity-100 transition-opacity duration-300"
                     style={{ transform: "scale(0.25)" }}
@@ -95,17 +93,21 @@ const PortfolioSection = () => {
                       title={`Preview of ${project.title}`}
                     />
                   </div>
-                  <div className="absolute inset-0 z-10 bg-teal-500/0 group-hover:bg-teal-500/5 transition-colors duration-300" />
+                  {/* Brand overlay on hover */}
+                  <div className="absolute inset-0 z-10 bg-brand/0 group-hover:bg-brand/5 transition-colors duration-300" />
                 </div>
 
-                <div className="p-5 sm:p-8 flex flex-col flex-grow relative">
-                  <h3 className="font-bold text-slate-800 text-lg sm:text-xl mb-2 sm:mb-3 group-hover:text-teal-600 transition-colors duration-300">
+                <div className="p-[var(--spacing-24)] flex flex-col flex-grow">
+                  {/* Type badge */}
+                  <span className="font-[var(--font-mono)] text-[12px] leading-[1.6] tracking-[-0.36px] text-brand uppercase mb-[var(--spacing-8)]">
+                    {project.type}
+                  </span>
+
+                  <h3 className="font-medium text-midnight-ink text-[18px] leading-[1.2] tracking-[-0.72px] mb-[var(--spacing-8)] group-hover:text-brand transition-colors duration-200">
                     {project.title}
                   </h3>
-                  <Badge className="bg-teal-500 mb-2 text-white shadow-md border border-neutral-900/20">
-                    {project.type}
-                  </Badge>
-                  <p className="text-slate-600 text-xs sm:text-sm leading-relaxed mb-6 flex-grow">
+
+                  <p className="text-ash-gray text-[14px] leading-[1.3] tracking-[-0.42px] mb-[var(--spacing-24)] flex-grow">
                     {project.desc}
                   </p>
 
@@ -113,10 +115,10 @@ const PortfolioSection = () => {
                     href={project.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="mt-auto inline-flex items-center justify-center gap-2 w-full px-4 py-2.5 sm:py-3 bg-white hover:bg-teal-500 text-teal-700 hover:text-white font-medium text-xs sm:text-sm rounded-xl transition-all duration-300 border border-teal-200 hover:border-teal-500 shadow-sm group/btn relative overflow-hidden z-10"
+                    className="inline-flex items-center gap-2 text-brand text-[14px] font-medium tracking-[-0.42px] hover:text-brand-dark transition-colors duration-200"
                   >
-                    <span className="relative z-10">Kunjungi Website</span>
-                    <ExternalLink className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-teal-500 group-hover/btn:text-white transition-colors relative z-10" />
+                    Kunjungi Website
+                    <ExternalLink className="w-3.5 h-3.5" />
                   </a>
                 </div>
               </div>
@@ -126,12 +128,12 @@ const PortfolioSection = () => {
 
         {/* Pagination Controls */}
         {totalPages > 1 && (
-          <Reveal delay={200}>
-            <div className="mt-12 lg:mt-16 flex items-center justify-center gap-3">
+          <Reveal animation="fadeUp" delay={200}>
+            <div className="mt-[var(--spacing-64)] flex items-center justify-center gap-2">
               <button
                 onClick={() => paginate(Math.max(1, currentPage - 1))}
                 disabled={currentPage === 1}
-                className="w-10 h-10 rounded-xl border border-teal-100 flex items-center justify-center bg-white text-teal-600 disabled:opacity-30 disabled:cursor-not-allowed hover:bg-teal-50 transition-all"
+                className="w-10 h-10 rounded-[var(--radius-lg)] border border-canvas-ice flex items-center justify-center bg-paper-white text-midnight-ink disabled:opacity-30 disabled:cursor-not-allowed hover:bg-brand-light hover:border-brand/20 transition-all cursor-pointer"
               >
                 <ChevronLeft className="w-5 h-5" />
               </button>
@@ -140,10 +142,10 @@ const PortfolioSection = () => {
                 <button
                   key={i}
                   onClick={() => paginate(i + 1)}
-                  className={`w-10 h-10 rounded-xl font-bold text-sm transition-all ${
+                  className={`w-10 h-10 rounded-[var(--radius-lg)] font-medium text-[14px] transition-all cursor-pointer ${
                     currentPage === i + 1
-                      ? "bg-teal-500 text-white shadow-lg shadow-teal-200"
-                      : "bg-white text-slate-500 border border-teal-100 hover:bg-teal-50"
+                      ? "bg-brand text-paper-white shadow-md shadow-brand/20"
+                      : "bg-paper-white text-ash-gray border border-canvas-ice hover:bg-brand-light hover:border-brand/20"
                   }`}
                 >
                   {i + 1}
@@ -153,7 +155,7 @@ const PortfolioSection = () => {
               <button
                 onClick={() => paginate(Math.min(totalPages, currentPage + 1))}
                 disabled={currentPage === totalPages}
-                className="w-10 h-10 rounded-xl border border-teal-100 flex items-center justify-center bg-white text-teal-600 disabled:opacity-30 disabled:cursor-not-allowed hover:bg-teal-50 transition-all"
+                className="w-10 h-10 rounded-[var(--radius-lg)] border border-canvas-ice flex items-center justify-center bg-paper-white text-midnight-ink disabled:opacity-30 disabled:cursor-not-allowed hover:bg-brand-light hover:border-brand/20 transition-all cursor-pointer"
               >
                 <ChevronRight className="w-5 h-5" />
               </button>

@@ -1,7 +1,76 @@
 @import "tailwindcss";
 
 @theme {
-  --font-sans: 'Open Sans', ui-sans-serif, system-ui, sans-serif;
+  /* Colors — DESIGN.md tokens + brand primary */
+  --color-canvas-ice: #e5e7eb;
+  --color-midnight-ink: #000000;
+  --color-paper-white: #ffffff;
+  --color-fog-gray: #979797;
+  --color-ash-gray: #444444;
+  --color-faint-mist: #f3f3f3;
+  --color-deep-smoke: #2f2f2f;
+  --color-action-green: #d1ffca;
+  --color-alert-yellow: #fff100;
+
+  /* Brand Primary */
+  --color-brand: #259194;
+  --color-brand-dark: #1d7375;
+  --color-brand-light: #e6f5f5;
+  --color-brand-glow: rgba(37, 145, 148, 0.15);
+
+  /* Typography — Font Families */
+  --font-body: 'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-display: 'Bebas Neue', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+  /* Typography — Scale */
+  --text-caption: 12px;
+  --leading-caption: 1.6;
+  --tracking-caption: -0.36px;
+  --text-body-sm: 14px;
+  --leading-body-sm: 1.3;
+  --tracking-body-sm: -0.42px;
+  --text-body: 16px;
+  --leading-body: 1.25;
+  --tracking-body: -0.42px;
+  --text-subheading: 18px;
+  --leading-subheading: 1.2;
+  --tracking-subheading: -0.72px;
+  --text-heading: 28px;
+  --leading-heading: 1.14;
+  --text-heading-lg: 40px;
+  --leading-heading-lg: 1.1;
+  --text-display-sm: 48px;
+  --leading-display-sm: 0.9;
+  --tracking-display-sm: -1.44px;
+  --text-display: 130px;
+  --leading-display: 0.9;
+  --tracking-display: -3.9px;
+
+  /* Spacing */
+  --spacing-8: 8px;
+  --spacing-16: 16px;
+  --spacing-24: 24px;
+  --spacing-40: 40px;
+  --spacing-64: 64px;
+  --spacing-80: 80px;
+  --spacing-96: 96px;
+
+  /* Border Radius */
+  --radius-md: 4px;
+  --radius-lg: 8px;
+  --radius-xl: 12px;
+  --radius-2xl: 20px;
+  --radius-3xl: 24px;
+  --radius-3xl-2: 32px;
+  --radius-full: 48px;
+  --radius-full-2: 64px;
+
+  /* Named Radii */
+  --radius-cards: 32px;
+  --radius-buttons: 8px;
+  --radius-heroelements: 64px;
+  --radius-navigationitems: 12px;
 }
 
 @layer base {
@@ -10,24 +79,146 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
+    font-family: var(--font-body);
   }
 
-  /* Heading harmony — tight tracking at large sizes */
+  body {
+    background-color: var(--color-canvas-ice);
+    color: var(--color-midnight-ink);
+    margin: 0;
+    overflow-x: hidden;
+  }
+
+  /* Display headings — SuisseIntlCond substitute */
+  h1, h2 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    line-height: 0.9;
+    text-transform: uppercase;
+  }
+
   h1 {
-    letter-spacing: -0.03em;
-    line-height: 1.1;
+    letter-spacing: -3.9px;
   }
+
   h2 {
-    letter-spacing: -0.02em;
-    line-height: 1.2;
+    letter-spacing: -1.44px;
   }
-  h3 {
-    letter-spacing: -0.01em;
-    line-height: 1.3;
+
+  /* Body headings — SuisseIntl */
+  h3, h4, h5, h6 {
+    font-family: var(--font-body);
+    font-weight: 500;
+    line-height: 1.2;
   }
 
   /* Body — comfortable reading */
   p {
-    line-height: 1.7;
+    line-height: 1.25;
+    letter-spacing: -0.42px;
+  }
+
+  /* Selection */
+  ::selection {
+    background-color: var(--color-brand);
+    color: var(--color-paper-white);
+  }
+}
+
+/* ── Animation Keyframes ── */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(60px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes blurIn {
+  from {
+    opacity: 0;
+    filter: blur(8px);
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(37, 145, 148, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 24px 8px rgba(37, 145, 148, 0.15);
   }
 }

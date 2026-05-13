@@ -15,7 +15,7 @@ import PortfolioSection from './components/sections/PortfolioSection';
 
 export default function App() {
   return (
-    <div className="font-sans text-slate-800 antialiased selection:bg-teal-500 selection:text-white scroll-smooth">
+    <div className="font-[var(--font-body)] text-midnight-ink antialiased selection:bg-action-green selection:text-midnight-ink scroll-smooth">
       <Header />
       <main>
         <Hero />
