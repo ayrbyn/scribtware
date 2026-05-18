@@ -34,7 +34,7 @@ const Footer = () => {
         {/* Big footer headline */}
         <Reveal animation="slideUp" duration={900}>
           <div className="mb-[var(--spacing-80)]">
-            <h2 className="font-[var(--font-display)] text-[48px] md:text-[80px] lg:text-[100px] leading-[0.9] tracking-[-2.4px] text-paper-white uppercase">
+            <h2 className="font-[var(--font-display)] text-[40px] sm:text-[48px] md:text-[80px] lg:text-[100px] leading-[0.9] tracking-[-1.5px] sm:tracking-[-2.4px] text-paper-white uppercase">
               MARI BANGUN
               <br />
               SESUATU YANG
@@ -46,7 +46,7 @@ const Footer = () => {
                 href="https://wa.me/6282379097272"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group inline-flex items-center gap-2 bg-brand text-paper-white px-[var(--spacing-24)] py-3 rounded-[var(--radius-buttons)] font-medium text-[14px] tracking-[-0.42px] hover:bg-brand-dark shadow-md shadow-brand/20 transition-all duration-300"
+                className="group flex justify-center items-center w-full sm:w-auto sm:inline-flex gap-2 bg-brand text-paper-white px-[var(--spacing-24)] py-4 sm:py-3 rounded-[var(--radius-buttons)] font-medium text-[15px] sm:text-[14px] tracking-[-0.42px] hover:bg-brand-dark shadow-md shadow-brand/20 transition-all duration-300"
               >
                 Mulai Percakapan
                 <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200" />
@@ -115,8 +115,8 @@ const Footer = () => {
 
         {/* Bottom bar */}
         <Reveal animation="fadeUp" delay={400} duration={600}>
-          <div className="flex flex-col md:flex-row justify-between items-center border-t border-deep-smoke pt-[var(--spacing-24)]">
-            <p className="text-fog-gray text-[12px] font-[var(--font-mono)] tracking-[-0.36px] mb-3 md:mb-0">
+          <div className="flex flex-col md:flex-row justify-between items-center text-center md:text-left border-t border-deep-smoke pt-[var(--spacing-24)]">
+            <p className="text-fog-gray text-[12px] font-[var(--font-mono)] tracking-[-0.36px] mb-4 md:mb-0">
               © {new Date().getFullYear()} Scribtware. All Rights Reserved.
             </p>
             <div className="flex gap-[var(--spacing-24)]">

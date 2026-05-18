@@ -60,7 +60,7 @@ const Hero = () => {
 
         {/* Hero Headline */}
         <Reveal animation="slideUp" delay={150} duration={900}>
-          <h1 className="font-[var(--font-display)] text-[64px] sm:text-[80px] md:text-[100px] lg:text-[130px] leading-[0.9] tracking-[-3.9px] text-midnight-ink uppercase max-w-5xl">
+          <h1 className="font-[var(--font-display)] text-[48px] sm:text-[64px] md:text-[100px] lg:text-[130px] leading-[0.9] tracking-[-2px] sm:tracking-[-3.9px] text-midnight-ink uppercase max-w-5xl">
             BISNIS LEBIH MAJU,
             <br />
             DIMULAI DARI
@@ -96,15 +96,15 @@ const Hero = () => {
 
         {/* CTAs */}
         <Reveal animation="fadeUp" delay={500} duration={600}>
-          <div className="flex flex-col sm:flex-row gap-3 mt-[var(--spacing-40)]">
-            <a href="https://wa.me/6282379097272" target="_blank" rel="noopener noreferrer">
-              <button className="group flex items-center gap-2 bg-brand text-paper-white px-[var(--spacing-24)] py-3.5 rounded-[var(--radius-buttons)] text-[14px] font-medium tracking-[-0.42px] hover:bg-brand-dark shadow-md shadow-brand/20 hover:shadow-lg hover:shadow-brand/30 transition-all duration-300 cursor-pointer">
+          <div className="flex flex-col sm:flex-row gap-3 mt-[var(--spacing-40)] w-full sm:w-auto">
+            <a href="https://wa.me/6282379097272" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto block">
+              <button className="group w-full sm:w-auto flex justify-center items-center gap-2 bg-brand text-paper-white px-[var(--spacing-24)] py-4 sm:py-3.5 rounded-[var(--radius-buttons)] text-[15px] sm:text-[14px] font-medium tracking-[-0.42px] hover:bg-brand-dark shadow-md shadow-brand/20 hover:shadow-lg hover:shadow-brand/30 transition-all duration-300 cursor-pointer">
                 Mulai Proyek
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" />
               </button>
             </a>
-            <a href="#services">
-              <button className="flex items-center gap-2 bg-transparent text-ash-gray px-[var(--spacing-24)] py-3.5 rounded-[var(--radius-buttons)] text-[14px] font-normal tracking-[-0.42px] hover:text-brand transition-colors duration-200 cursor-pointer">
+            <a href="#services" className="w-full sm:w-auto block">
+              <button className="flex w-full sm:w-auto justify-center items-center gap-2 bg-transparent border border-canvas-ice sm:border-transparent text-ash-gray px-[var(--spacing-24)] py-4 sm:py-3.5 rounded-[var(--radius-buttons)] text-[15px] sm:text-[14px] font-normal tracking-[-0.42px] hover:text-brand hover:border-brand-light sm:hover:border-transparent transition-all duration-200 cursor-pointer">
                 Lihat Layanan
               </button>
             </a>

@@ -78,14 +78,14 @@ const Header = () => {
             <a
               key={link.label}
               href={link.href}
-              className="text-ash-gray font-normal text-[14px] tracking-[-0.42px] py-3 px-2 rounded-[var(--radius-lg)] hover:bg-brand-light hover:text-brand transition-colors border-b border-canvas-ice last:border-0"
+              className="text-ash-gray font-normal text-[14px] tracking-[-0.42px] py-3.5 px-4 rounded-[var(--radius-lg)] hover:bg-brand-light hover:text-brand transition-colors border-b border-canvas-ice last:border-0"
               onClick={() => setMobileMenuOpen(false)}
             >
               {link.label}
             </a>
           ))}
-          <a href="https://wa.me/6282379097272" target="_blank" rel="noopener noreferrer" className="mt-2">
-            <Button className="w-full">Mulai Proyek</Button>
+          <a href="https://wa.me/6282379097272" target="_blank" rel="noopener noreferrer" className="mt-2 block">
+            <Button className="w-full py-3.5 text-[15px]">Mulai Proyek</Button>
           </a>
         </div>
 

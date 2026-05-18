@@ -13,7 +13,7 @@ const CTA = () => {
 
         <Reveal animation="scaleIn" duration={900}>
           {/* Hero Card with brand color */}
-          <div className="bg-brand rounded-[var(--radius-heroelements)] p-[var(--spacing-64)] md:p-[var(--spacing-80)] relative overflow-hidden">
+          <div className="bg-brand rounded-[var(--radius-heroelements)] p-[var(--spacing-32)] sm:p-[var(--spacing-64)] md:p-[var(--spacing-80)] relative overflow-hidden">
 
             {/* Parallax decorative circles inside card */}
             <div ref={decoRef1} style={decoStyle1} className="absolute -top-16 -right-16 w-[300px] h-[300px] rounded-full bg-paper-white/[0.08] pointer-events-none" />
@@ -36,7 +36,7 @@ const CTA = () => {
               </Reveal>
 
               <Reveal animation="slideUp" delay={300} duration={900}>
-                <h2 className="font-[var(--font-display)] text-[48px] md:text-[64px] lg:text-[80px] leading-[0.9] tracking-[-2.4px] text-paper-white uppercase mb-[var(--spacing-24)]">
+                <h2 className="font-[var(--font-display)] text-[40px] sm:text-[48px] md:text-[64px] lg:text-[80px] leading-[0.9] tracking-[-1.5px] sm:tracking-[-2.4px] text-paper-white uppercase mb-[var(--spacing-24)]">
                   MULAI DARI
                   <br />
                   PERCAKAPAN
@@ -52,8 +52,8 @@ const CTA = () => {
               </Reveal>
 
               <Reveal animation="fadeUp" delay={550} duration={600}>
-                <a href="https://wa.me/6282379097272" target="_blank" rel="noopener noreferrer">
-                  <button className="group inline-flex items-center gap-2 bg-paper-white text-brand px-[var(--spacing-24)] py-4 rounded-[var(--radius-buttons)] text-[16px] font-medium tracking-[-0.42px] hover:bg-midnight-ink hover:text-paper-white shadow-lg shadow-midnight-ink/10 transition-all duration-300 cursor-pointer">
+                <a href="https://wa.me/6282379097272" target="_blank" rel="noopener noreferrer" className="block sm:inline-block w-full sm:w-auto">
+                  <button className="group flex justify-center w-full sm:w-auto items-center gap-2 bg-paper-white text-brand px-[var(--spacing-24)] py-4 sm:py-4 rounded-[var(--radius-buttons)] text-[16px] font-medium tracking-[-0.42px] hover:bg-midnight-ink hover:text-paper-white shadow-lg shadow-midnight-ink/10 transition-all duration-300 cursor-pointer">
                     Mulai Percakapan
                     <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" />
                   </button>

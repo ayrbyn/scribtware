@@ -9,7 +9,7 @@ const SectionTitle = ({ title, subtitle, align = 'left' }) => (
         {subtitle}
       </span>
     )}
-    <h2 className="font-[var(--font-display)] text-[48px] md:text-[64px] leading-[0.9] tracking-[-1.44px] text-midnight-ink uppercase">
+    <h2 className="font-[var(--font-display)] text-[40px] sm:text-[48px] md:text-[64px] leading-[0.9] tracking-[-1.5px] sm:tracking-[-1.44px] text-midnight-ink uppercase">
       {title}
     </h2>
   </div>
